@@ -1,0 +1,57 @@
+{
+  "TheHeader": {
+    "description": "Header of the-components",
+    "displayName": "TheHeader",
+    "methods": [
+      {
+        "name": "styles",
+        "docblock": "Define style\n@param [options={}] options - Optional settings\n@returns {Object} Style object",
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "options"
+          }
+        ],
+        "returns": null,
+        "description": "Define style"
+      }
+    ],
+    "props": {
+      "className": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "CSS class name",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      },
+      "styles": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Style objects",
+        "defaultValue": {
+          "value": "TheHeader.styles({})",
+          "computed": true
+        }
+      },
+      "id": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "DOM Id",
+        "defaultValue": {
+          "value": "null",
+          "computed": false
+        }
+      }
+    }
+  }
+}

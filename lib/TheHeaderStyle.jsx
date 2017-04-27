@@ -8,7 +8,7 @@ import TheStyle from 'the-style'
 /** Style for TheHeader */
 const TheHeaderStyle = ({ id, className, options }) => (
   <TheStyle { ...{ id } }
-            className={ classnames('te-body-style', className) }
+            className={ classnames('the-header-style', className) }
             styles={ TheHeaderStyle.data(options) }
   />
 )

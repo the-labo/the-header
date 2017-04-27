@@ -75,16 +75,16 @@ Usage
 'use strict'
 
 import React from 'react'
-import TheHeader from 'the-header'
-
-const TheHeaderStyles = TheHeader.styles({})
+import { TheHeader, TheHeaderStyle } from 'the-header'
 
 class ExampleComponent extends React.PureComponent {
   render () {
     return (
-      <TheHeader id='my-component'
-                 styles={ TheHeaderStyles }
-      />
+      <div>
+        <TheHeaderStyle/>
+        <TheHeader id='my-component'
+        />
+      </div>
     )
   }
 }
@@ -111,9 +111,15 @@ Header of the-components
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
-| `className` | string  | CSS class name | `null` |
-| `styles` | object  | Style objects | `TheHeader.styles({})` |
-| `id` | string  | DOM Id | `null` |
+### TheHeaderStyle
+
+Style for TheHeader
+
+**Props**
+
+| Name | Type | Description | Default |
+| --- | --- | ---- | ---- |
+| `options` | object  | Style options | `{}` |
 
 
 <!-- Section from "docs/guides/03.Components.md.hbs" End -->

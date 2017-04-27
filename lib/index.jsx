@@ -5,9 +5,11 @@
 'use strict'
 
 import TheHeader from './TheHeader'
+import TheHeaderStyle from './TheHeaderStyle'
 
 export default TheHeader
 
 export {
-  TheHeader
+  TheHeader,
+  TheHeaderStyle
 }

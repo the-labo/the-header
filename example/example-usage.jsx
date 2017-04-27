@@ -1,16 +1,16 @@
 'use strict'
 
 import React from 'react'
-import TheHeader from 'the-header'
-
-const TheHeaderStyles = TheHeader.styles({})
+import { TheHeader, TheHeaderStyle } from 'the-header'
 
 class ExampleComponent extends React.PureComponent {
   render () {
     return (
-      <TheHeader id='my-component'
-                 styles={ TheHeaderStyles }
-      />
+      <div>
+        <TheHeaderStyle/>
+        <TheHeader id='my-component'
+        />
+      </div>
     )
   }
 }

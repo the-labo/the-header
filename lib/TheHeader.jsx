@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import { TheLink } from 'the-link'
 import classnames from 'classnames'
 import TheHeaderStyle from './TheHeaderStyle'
+import { TheContainer } from 'the-container'
 import { htmlAttributesFor } from 'the-component-util'
 
 /**
@@ -19,25 +20,32 @@ class TheHeader extends React.PureComponent {
       children
     } = props
     return (
-      <header { ...htmlAttributesFor(props, { except: [ 'className' ] }) }
-              className={ classnames('the-header', className) }
+      <header {...htmlAttributesFor(props, { except: [ 'className' ] })}
+              className={classnames('the-header', className)}
       >
         <div className='the-header-inner'
         >
-          { children }
+          <TheContainer>
+          {children}
+          </TheContainer>
         </div>
       </header>
     )
   }
 
-  static Logo ({ children }) {
-    return (<div className='the-header-logo'>{ children }</div>)
+  static Logo ({ to = '/', children }) {
+    return (
+      <TheLink to={to}
+               className='the-header-logo'>
+        {children}
+      </TheLink>
+    )
   }
 
   static Tab ({ children }) {
     return (
       <ul className='the-header-tab'>
-        { children }
+        {children}
       </ul>
     )
   }
@@ -45,10 +53,10 @@ class TheHeader extends React.PureComponent {
   static TabItem ({ to, activeClassName, activeStyle, children }) {
     return (
       <li className='the-header-tab-item'>
-        <TheLink to={ to }
-                 activeClassName={ classnames('the-header-tab-item-active', activeClassName) }
-                 activeStyle={ activeStyle }
-        >{ children }</TheLink>
+        <TheLink to={to}
+                 activeClassName={classnames('the-header-tab-item-active', activeClassName)}
+                 activeStyle={activeStyle}
+        >{children}</TheLink>
       </li>
     )
   }

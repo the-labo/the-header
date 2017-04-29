@@ -28,20 +28,33 @@ TheHeaderStyle.data = (options) => {
   let {
     overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
     overlayBorderColor = ThemeValues.overlayBorderColor,
+    headerHeight = ThemeValues.headerHeight,
     zIndex = 4
   } = options
   return {
+    '.the-header': {
+      minHeight: headerHeight
+    },
     '.the-header-inner': {
       position: 'fixed',
       left: 0,
       top: 0,
       right: 0,
       zIndex,
+      minHeight: headerHeight,
       backgroundColor: overlayBackgroundColor,
-      borderBottom: `1px solid ${overlayBorderColor}`,
-      display: 'flex'
+      borderBottom: `1px solid ${overlayBorderColor}`
     },
-    '.the-header-logo': {},
+    '.the-header-inner .the-container': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start'
+    },
+    '.the-header-logo': {
+      display: 'inline-block',
+      color: 'inherit',
+      textDecoration: 'none'
+    },
     '.the-header-tab': {
       display: 'flex',
       alignItems: 'center',

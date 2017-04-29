@@ -24,9 +24,10 @@ TheHeaderStyle.defaultProps = {
 }
 
 TheHeaderStyle.data = (options) => {
-  const { theme } = TheStyle
+  const { ThemeValues } = TheStyle
   let {
-    overlayBackground = theme.OVERLAY_BACKGROUND,
+    overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
+    overlayBorderColor = ThemeValues.overlayBorderColor,
     zIndex = 4
   } = options
   return {
@@ -36,7 +37,8 @@ TheHeaderStyle.data = (options) => {
       top: 0,
       right: 0,
       zIndex,
-      overlayBackground,
+      backgroundColor: overlayBackgroundColor,
+      borderBottom: `1px solid ${overlayBorderColor}`,
       display: 'flex'
     },
     '.the-header-logo': {},

@@ -33,7 +33,7 @@
     "prop-types": "^15.5.8",
     "the-component-util": "^1.0.5",
     "the-link": "^2.0.4",
-    "the-style": "^1.1.7"
+    "the-style": "^1.2.1"
   },
   "devDependencies": {
     "react": "^15.5.4",

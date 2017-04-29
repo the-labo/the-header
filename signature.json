@@ -2,7 +2,50 @@
   "TheHeader": {
     "description": "Header of the-components",
     "displayName": "TheHeader",
-    "methods": []
+    "methods": [
+      {
+        "name": "Logo",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "{ children }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Tab",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "{ children }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "TabItem",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "{ to, activeClassName, activeStyle, children }",
+            "type": null
+          }
+        ],
+        "returns": null
+      }
+    ]
   },
   "TheHeaderStyle": {
     "description": "Style for TheHeader",

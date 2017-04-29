@@ -50,9 +50,9 @@ Header of the-components
 <!-- Sections Start -->
 <a name="sections"></a>
 
-<!-- Section from "docs/guides/01.Installation.md.hbs" Start -->
+<!-- Section from "doc/guides/01.Installation.md.hbs" Start -->
 
-<a name="section-docs-guides-01-installation-md"></a>
+<a name="section-doc-guides-01-installation-md"></a>
 
 Installation
 -----
@@ -62,11 +62,11 @@ $ npm install the-header --save
 ```
 
 
-<!-- Section from "docs/guides/01.Installation.md.hbs" End -->
+<!-- Section from "doc/guides/01.Installation.md.hbs" End -->
 
-<!-- Section from "docs/guides/02.Usage.md.hbs" Start -->
+<!-- Section from "doc/guides/02.Usage.md.hbs" Start -->
 
-<a name="section-docs-guides-02-usage-md"></a>
+<a name="section-doc-guides-02-usage-md"></a>
 
 Usage
 ---------
@@ -75,16 +75,51 @@ Usage
 'use strict'
 
 import React from 'react'
+import TheRouter from 'the-router'
+import TheRoute from 'the-route'
 import { TheHeader, TheHeaderStyle } from 'the-header'
 
 class ExampleComponent extends React.PureComponent {
   render () {
+    const { MockPage } = ExampleComponent
+    const { Logo, Tab, TabItem } = TheHeader
     return (
       <div>
-        <TheHeaderStyle/>
-        <TheHeader id='my-component'
-        />
+        <TheRouter.Hash>
+          <TheHeaderStyle/>
+          <TheHeader>
+            <Logo>Some app</Logo>
+            <Tab>
+              <TabItem to='/page-a'>PageA</TabItem>
+              <TabItem to='/page-b'>PageB</TabItem>
+            </Tab>
+          </TheHeader>
+          <div>
+            <MockPage path='/page-a'
+                      color='#83A'
+                      message='This is Page A'
+            />
+            <MockPage path='/page-b'
+                      color='#38A'
+                      message='This is Page B'
+            />
+          </div>
+        </TheRouter.Hash>
       </div>
+    )
+  }
+
+  static MockPage ({ path, color, message }) {
+    return (
+      <TheRoute path={path}
+                render={(props) => (
+                  <div style={{ color: color }}>
+                    {message}
+                  </div>
+                )}
+      >
+
+      </TheRoute>
     )
   }
 }
@@ -94,11 +129,11 @@ export default ExampleComponent
 ```
 
 
-<!-- Section from "docs/guides/02.Usage.md.hbs" End -->
+<!-- Section from "doc/guides/02.Usage.md.hbs" End -->
 
-<!-- Section from "docs/guides/03.Components.md.hbs" Start -->
+<!-- Section from "doc/guides/03.Components.md.hbs" Start -->
 
-<a name="section-docs-guides-03-components-md"></a>
+<a name="section-doc-guides-03-components-md"></a>
 
 Components
 -----------
@@ -122,7 +157,7 @@ Style for TheHeader
 | `options` | object  | Style options | `{}` |
 
 
-<!-- Section from "docs/guides/03.Components.md.hbs" End -->
+<!-- Section from "doc/guides/03.Components.md.hbs" End -->
 
 
 <!-- Sections Start -->

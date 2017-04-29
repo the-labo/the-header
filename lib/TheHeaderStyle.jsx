@@ -36,7 +36,21 @@ TheHeaderStyle.data = (options) => {
       top: 0,
       right: 0,
       zIndex,
-      overlayBackground
+      overlayBackground,
+      display: 'flex'
+    },
+    '.the-header-logo': {},
+    '.the-header-tab': {
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'flex-start',
+      padding: '0 4px',
+      margin: 0,
+      listStyle: 'none'
+    },
+    '.the-header-tab-item': {
+      display: 'inline-block',
+      padding: '4px 8px'
     }
   }
 }

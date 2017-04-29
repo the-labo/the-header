@@ -29,6 +29,9 @@ TheHeaderStyle.data = (options) => {
     overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
     overlayBorderColor = ThemeValues.overlayBorderColor,
     headerHeight = ThemeValues.headerHeight,
+    dominantColor = ThemeValues.dominantColor,
+    contentWidth = ThemeValues.contentWidth,
+    tabInactiveColor = ThemeValues.tabInactiveColor,
     zIndex = 4
   } = options
   return {
@@ -48,24 +51,48 @@ TheHeaderStyle.data = (options) => {
     '.the-header-inner .the-container': {
       display: 'flex',
       alignItems: 'center',
-      justifyContent: 'flex-start'
+      justifyContent: 'flex-start',
+      flexWrap: 'wrap'
     },
     '.the-header-logo': {
       display: 'inline-block',
       color: 'inherit',
-      textDecoration: 'none'
+      textDecoration: 'none',
+      height: headerHeight,
+      padding: '0 8px',
+      lineHeight: `${headerHeight}px`,
+      marginRight: '16px'
     },
     '.the-header-tab': {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      padding: '0 4px',
-      margin: 0,
-      listStyle: 'none'
+      padding: '0 8px',
+      margin: '0 -8px',
+      listStyle: 'none',
+      boxSizing: 'border-box',
+      minWidth: contentWidth
     },
     '.the-header-tab-item': {
       display: 'inline-block',
-      padding: '4px 8px'
+      margin: 0,
+      padding: 0
+    },
+    '.the-header-tab-item .the-link': {
+      display: 'inline-block',
+      color: tabInactiveColor,
+      padding: '0 8px',
+      textDecoration: 'none',
+      borderBottom: '2px solid transparent',
+      fontSize: 'smaller',
+      height: headerHeight,
+      lineHeight: `${headerHeight}px`,
+      boxSizing: 'border-box',
+      maxWidth: '100%'
+    },
+    '.the-header-tab-item .the-link-active': {
+      borderBottomColor: dominantColor,
+      color: dominantColor
     }
   }
 }

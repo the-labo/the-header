@@ -54,7 +54,7 @@ class TheHeader extends React.PureComponent {
     return (
       <li className='the-header-tab-item'>
         <TheLink to={to}
-                 activeClassName={classnames('the-header-tab-item-active', activeClassName)}
+                 activeClassName={activeClassName}
                  activeStyle={activeStyle}
         >{children}</TheLink>
       </li>

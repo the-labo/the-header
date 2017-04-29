@@ -9,7 +9,7 @@ const { readFileSync } = require('fs')
 module.exports = {
   force: true,
   mode: '444',
-  tmpl: demoMarkup,
+  // tmpl: demoMarkup,
   data: {
     pkg: require('../../package.json'),
     js: './bundle.js',

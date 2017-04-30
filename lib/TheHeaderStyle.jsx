@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import classnames from 'classnames'
 import TheStyle from 'the-style'
+import { asStyleData } from 'the-component-util'
 
 /** Style for TheHeader */
 const TheHeaderStyle = ({ id, className, options }) => (
@@ -34,9 +35,10 @@ TheHeaderStyle.data = (options) => {
     tabInactiveColor = ThemeValues.tabInactiveColor,
     zIndex = 4
   } = options
-  return {
-    '.the-header': {
+  return asStyleData('.the-header', {
+    '': {
       minHeight: headerHeight
+
     },
     '.the-header-inner': {
       position: 'fixed',
@@ -94,7 +96,7 @@ TheHeaderStyle.data = (options) => {
       borderBottomColor: dominantColor,
       color: dominantColor
     }
-  }
+  })
 }
 
 export default TheHeaderStyle

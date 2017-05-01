@@ -83,7 +83,7 @@ import { TheButton, TheButtonStyle } from 'the-button'
 class ExampleComponent extends React.PureComponent {
   render () {
     const { MockPage } = ExampleComponent
-    const { Logo, Tab, TabItem } = TheHeader
+    const { Logo, Tab, TabItem, RightArea } = TheHeader
     return (
       <div>
         <TheRouter.Hash>
@@ -95,10 +95,10 @@ class ExampleComponent extends React.PureComponent {
               <TabItem to='/page-a'>PageA</TabItem>
               <TabItem to='/page-b'>PageB</TabItem>
             </Tab>
-            <div>
+            <RightArea>
               <TheButton>Login</TheButton>
               <TheButton primary>Sign Up</TheButton>
-            </div>
+            </RightArea>
           </TheHeader>
           <div>
             <MockPage path='/page-a'

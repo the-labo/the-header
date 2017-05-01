@@ -99,6 +99,17 @@ TheHeaderStyle.data = (options) => {
     '.the-button': {
       fontSize: 'smaller',
       padding: '0.25em 1em'
+    },
+    '.the-container': {
+      position: 'relative'
+    },
+    '.the-header-right-area': {
+      position: 'absolute',
+      right: 0,
+      height: headerHeight,
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center'
     }
   })
 }

@@ -12,25 +12,61 @@ import { htmlAttributesFor } from 'the-component-util'
  * Header of the-components
  */
 class TheHeader extends React.PureComponent {
+  constructor (props) {
+    super(props)
+    const s = this
+    s.inner = null
+    s.handleResize = s.handleResize.bind(s)
+    s.state = {
+      innerHeight: null
+    }
+  }
+
   render () {
     const s = this
-    const { props } = s
+    const { props, state } = s
     let {
       className,
       children
     } = props
+    let { innerHeight } = state
     return (
-      <header {...htmlAttributesFor(props, { except: [ 'className' ] })}
+      <header {...htmlAttributesFor(props, { except: [ 'className', 'style' ] })}
               className={classnames('the-header', className)}
+              style={{ minHeight: innerHeight }}
       >
         <div className='the-header-inner'
+             ref={(inner) => { s.inner = inner }}
         >
           <TheContainer>
-          {children}
+            {children}
           </TheContainer>
         </div>
       </header>
     )
+  }
+
+  componentDidMount () {
+    const s = this
+    window.addEventListener('resize', s.handleResize)
+    s.doLayout()
+  }
+
+  componentWillUnmount () {
+    const s = this
+    window.removeEventListener('resize', s.handleResize)
+  }
+
+  handleResize (e) {
+    const s = this
+    s.doLayout()
+  }
+
+  doLayout () {
+    const s = this
+    let { inner } = s
+    let innerHeight = inner && inner.offsetHeight
+    s.setState({ innerHeight })
   }
 
   static Logo ({ to = '/', children }) {
@@ -58,6 +94,16 @@ class TheHeader extends React.PureComponent {
                  activeStyle={activeStyle}
         >{children}</TheLink>
       </li>
+    )
+  }
+
+  static RightArea (props) {
+    const { className, children } = props
+    return (
+      <div {...htmlAttributesFor(props, { except: [ 'className' ] })}
+           className={classnames('the-header-right-area', className)}>
+        {children}
+      </div>
     )
   }
 }

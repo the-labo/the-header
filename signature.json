@@ -4,6 +4,25 @@
     "displayName": "TheHeader",
     "methods": [
       {
+        "name": "handleResize",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "e",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "doLayout",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
         "name": "Logo",
         "docblock": null,
         "modifiers": [
@@ -40,6 +59,20 @@
         "params": [
           {
             "name": "{ to, activeClassName, activeStyle, children }",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "RightArea",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
             "type": null
           }
         ],

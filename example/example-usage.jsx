@@ -4,6 +4,7 @@ import React from 'react'
 import TheRouter from 'the-router'
 import TheRoute from 'the-route'
 import { TheHeader, TheHeaderStyle } from 'the-header'
+import { TheButton, TheButtonStyle } from 'the-button'
 
 class ExampleComponent extends React.PureComponent {
   render () {
@@ -13,12 +14,17 @@ class ExampleComponent extends React.PureComponent {
       <div>
         <TheRouter.Hash>
           <TheHeaderStyle/>
+          <TheButtonStyle/>
           <TheHeader>
             <Logo>Some app</Logo>
             <Tab>
               <TabItem to='/page-a'>PageA</TabItem>
               <TabItem to='/page-b'>PageB</TabItem>
             </Tab>
+            <div>
+              <TheButton>Login</TheButton>
+              <TheButton primary>Sign Up</TheButton>
+            </div>
           </TheHeader>
           <div>
             <MockPage path='/page-a'

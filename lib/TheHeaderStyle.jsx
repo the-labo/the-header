@@ -95,6 +95,10 @@ TheHeaderStyle.data = (options) => {
     '.the-header-tab-item .the-link-active': {
       borderBottomColor: dominantColor,
       color: dominantColor
+    },
+    '.the-button': {
+      fontSize: 'smaller',
+      padding: '0.25em 1em'
     }
   })
 }

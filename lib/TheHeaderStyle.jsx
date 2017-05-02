@@ -54,7 +54,8 @@ TheHeaderStyle.data = (options) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
-      flexWrap: 'wrap'
+      flexWrap: 'wrap',
+      boxSizing: 'border-box'
     },
     '.the-header-logo': {
       display: 'inline-block',
@@ -63,7 +64,8 @@ TheHeaderStyle.data = (options) => {
       height: headerHeight,
       padding: '0 4px',
       lineHeight: `${headerHeight}px`,
-      margin: '8px'
+      margin: '0 8px',
+      boxSizing: 'border-box'
     },
     '.the-header-tab': {
       display: 'flex',

@@ -61,16 +61,16 @@ TheHeaderStyle.data = (options) => {
       color: 'inherit',
       textDecoration: 'none',
       height: headerHeight,
-      padding: '0 8px',
+      padding: '0 4px',
       lineHeight: `${headerHeight}px`,
-      marginRight: '16px'
+      margin: '8px'
     },
     '.the-header-tab': {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
       padding: '0 8px',
-      margin: '0 -8px',
+      margin: '0 -16px',
       listStyle: 'none',
       boxSizing: 'border-box',
       minWidth: contentWidth
@@ -109,6 +109,7 @@ TheHeaderStyle.data = (options) => {
     },
     '.the-header-right-area': {
       position: 'absolute',
+      top: 0,
       right: 0,
       height: headerHeight,
       display: 'flex',

@@ -40,7 +40,7 @@
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-router-dom": "^4.1.1",
-    "the-button": "^1.1.0",
+    "the-button": "^1.1.2",
     "the-component-demo": "^2.0.13",
     "the-route": "^1.0.5",
     "the-router": "^1.0.4",

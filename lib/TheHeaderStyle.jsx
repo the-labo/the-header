@@ -98,7 +98,11 @@ TheHeaderStyle.data = (options) => {
     },
     '.the-button': {
       fontSize: 'smaller',
-      padding: '0.25em 1em'
+      padding: '0.25em 1em',
+      display: 'inline-flex',
+      justifyContent: 'center',
+      alignItems: 'center',
+      lineHeight: '2em'
     },
     '.the-container': {
       position: 'relative'

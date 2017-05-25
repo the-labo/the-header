@@ -79,7 +79,7 @@ TheHeaderStyle.data = (options) => {
     },
     '.the-header-tab-item': {
       display: 'inline-block',
-      margin: 0,
+      margin: '0 8px',
       padding: 0
     },
     '.the-header-tab-item .the-link': {

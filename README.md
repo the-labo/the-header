@@ -82,8 +82,8 @@ import { TheButton, TheButtonStyle } from 'the-button'
 
 class ExampleComponent extends React.PureComponent {
   render () {
-    const { MockPage } = ExampleComponent
-    const { Logo, Tab, TabItem, RightArea } = TheHeader
+    const {MockPage} = ExampleComponent
+    const {Logo, Tab, TabItem, RightArea} = TheHeader
     return (
       <div>
         <TheRouter.Hash>
@@ -109,17 +109,33 @@ class ExampleComponent extends React.PureComponent {
                       color='#38A'
                       message='This is Page B'
             />
+
+            <hr/>
+
+            <TheHeader asOverlay
+                       style={{top: 190}}
+            >
+              <Logo>Some app</Logo>
+              <Tab>
+                <TabItem to='/page-a'>PageA</TabItem>
+                <TabItem to='/page-b'>PageB</TabItem>
+              </Tab>
+              <RightArea>
+                <TheButton>Login</TheButton>
+                <TheButton primary>Sign Up</TheButton>
+              </RightArea>
+            </TheHeader>
           </div>
         </TheRouter.Hash>
       </div>
     )
   }
 
-  static MockPage ({ path, color, message }) {
+  static MockPage ({path, color, message}) {
     return (
       <TheRoute path={path}
                 render={(props) => (
-                  <div style={{ color: color }}>
+                  <div style={{color: color}}>
                     {message}
                   </div>
                 )}
@@ -152,6 +168,7 @@ Header of the-components
 
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
+| `asOverlay` | bool  | Style as overlay | `false` |
 ### TheHeaderStyle
 
 Style for TheHeader

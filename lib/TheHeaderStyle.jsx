@@ -7,10 +7,10 @@ import TheStyle from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheHeader */
-const TheHeaderStyle = ({ id, className, options }) => (
-  <TheStyle { ...{ id } }
-            className={ classnames('the-header-style', className) }
-            styles={ TheHeaderStyle.data(options) }
+const TheHeaderStyle = ({id, className, options}) => (
+  <TheStyle {...{id}}
+            className={classnames('the-header-style', className)}
+            styles={TheHeaderStyle.data(options)}
   />
 )
 
@@ -25,14 +25,15 @@ TheHeaderStyle.defaultProps = {
 }
 
 TheHeaderStyle.data = (options) => {
-  const { ThemeValues } = TheStyle
-  let {
+  const {ThemeValues} = TheStyle
+  const {
     overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
     overlayBorderColor = ThemeValues.overlayBorderColor,
     headerHeight = ThemeValues.headerHeight,
     dominantColor = ThemeValues.dominantColor,
     contentWidth = ThemeValues.contentWidth,
     tabInactiveColor = ThemeValues.tabInactiveColor,
+    overlayHeaderHeight = 24,
     zIndex = 4
   } = options
   return asStyleData('.the-header', {
@@ -117,6 +118,48 @@ TheHeaderStyle.data = (options) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    '&.the-header-as-overlay': {
+      minHeight: '0 !important',
+      '.the-header-inner': {
+        zIndex: 666,
+        border: 'none',
+        padding: 0,
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.33)',
+        background: 'rgba(255, 255, 255, 0.66)',
+        height: overlayHeaderHeight,
+        lineHeight: `${overlayHeaderHeight}px`,
+        minHeight: 0
+      },
+      '.the-header-logo': {
+        padding: '0 9px',
+        height: overlayHeaderHeight,
+        lineHeight: `${overlayHeaderHeight}px`
+      },
+      '.the-container': {
+        maxWidth: 'none'
+      },
+      '.the-header-tab-item .the-link': {
+        height: overlayHeaderHeight,
+        lineHeight: `${overlayHeaderHeight}px`,
+        display: 'inline-flex',
+        justifyContent: 'center',
+        alignItems: 'center'
+      },
+      '.the-header-right-area': {
+        height: 'auto',
+        bottom: 0
+      },
+      '.the-button': {
+        padding: '0 1em',
+        lineHeight: `${overlayHeaderHeight - 4.5}px`,
+        minHeight: 0,
+        height: 'auto',
+        margin: '0 8px'
+      },
+      '.the-dropdown-menu-inner': {
+        background: 'none'
+      }
     }
   })
 }

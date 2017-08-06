@@ -30,7 +30,7 @@
         ],
         "params": [
           {
-            "name": "{ to = '/', children }",
+            "name": "{to = '/', children}",
             "type": null
           }
         ],
@@ -44,7 +44,7 @@
         ],
         "params": [
           {
-            "name": "{ children }",
+            "name": "{children}",
             "type": null
           }
         ],
@@ -58,7 +58,7 @@
         ],
         "params": [
           {
-            "name": "{ to, activeClassName, activeStyle, children }",
+            "name": "{to, activeClassName, activeStyle, children}",
             "type": null
           }
         ],
@@ -78,7 +78,20 @@
         ],
         "returns": null
       }
-    ]
+    ],
+    "props": {
+      "asOverlay": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Style as overlay",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      }
+    }
   },
   "TheHeaderStyle": {
     "description": "Style for TheHeader",

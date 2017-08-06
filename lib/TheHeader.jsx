@@ -3,7 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TheLink } from 'the-link'
-import classnames from 'classnames'
+import c from 'classnames'
 import TheHeaderStyle from './TheHeaderStyle'
 import { TheContainer } from 'the-container'
 import { htmlAttributesFor } from 'the-component-util'
@@ -24,18 +24,23 @@ class TheHeader extends React.PureComponent {
 
   render () {
     const s = this
-    const { props, state } = s
-    let {
+    const {props, state} = s
+    const {
       className,
-      children
+      children,
+      style,
+      asOverlay
     } = props
-    let { innerHeight } = state
+    const {innerHeight} = state
     return (
-      <header {...htmlAttributesFor(props, { except: [ 'className', 'style' ] })}
-              className={classnames('the-header', className)}
-              style={{ minHeight: innerHeight }}
+      <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
+              className={c('the-header', className, {
+                'the-header-as-overlay': asOverlay
+              })}
+              style={{minHeight: innerHeight}}
       >
         <div className='the-header-inner'
+             style={style}
              ref={(inner) => { s.inner = inner }}
         >
           <TheContainer>
@@ -64,12 +69,12 @@ class TheHeader extends React.PureComponent {
 
   doLayout () {
     const s = this
-    let { inner } = s
+    let {inner} = s
     let innerHeight = inner && inner.offsetHeight
-    s.setState({ innerHeight })
+    s.setState({innerHeight})
   }
 
-  static Logo ({ to = '/', children }) {
+  static Logo ({to = '/', children}) {
     return (
       <TheLink to={to}
                className='the-header-logo'>
@@ -78,7 +83,7 @@ class TheHeader extends React.PureComponent {
     )
   }
 
-  static Tab ({ children }) {
+  static Tab ({children}) {
     return (
       <ul className='the-header-tab'>
         {children}
@@ -86,7 +91,7 @@ class TheHeader extends React.PureComponent {
     )
   }
 
-  static TabItem ({ to, activeClassName, activeStyle, children }) {
+  static TabItem ({to, activeClassName, activeStyle, children}) {
     return (
       <li className='the-header-tab-item'>
         <TheLink to={to}
@@ -98,10 +103,10 @@ class TheHeader extends React.PureComponent {
   }
 
   static RightArea (props) {
-    const { className, children } = props
+    const {className, children} = props
     return (
-      <div {...htmlAttributesFor(props, { except: [ 'className' ] })}
-           className={classnames('the-header-right-area', className)}>
+      <div {...htmlAttributesFor(props, {except: ['className']})}
+           className={c('the-header-right-area', className)}>
         {children}
       </div>
     )
@@ -110,9 +115,14 @@ class TheHeader extends React.PureComponent {
 
 TheHeader.Style = TheHeaderStyle
 
-TheHeader.propTypes = {}
+TheHeader.propTypes = {
+  /** Style as overlay */
+  asOverlay: PropTypes.bool
+}
 
-TheHeader.defaultProps = {}
+TheHeader.defaultProps = {
+  asOverlay: false
+}
 
 TheHeader.displayName = 'TheHeader'
 

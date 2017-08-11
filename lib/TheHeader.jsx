@@ -91,13 +91,24 @@ class TheHeader extends React.PureComponent {
     )
   }
 
-  static TabItem ({to, activeClassName, activeStyle, children}) {
+  static TabItem ({
+                    to,
+                    text,
+                    icon,
+                    activeClassName,
+                    activeStyle,
+                    children
+                  }) {
     return (
       <li className='the-header-tab-item'>
         <TheLink to={to}
                  activeClassName={activeClassName}
                  activeStyle={activeStyle}
-        >{children}</TheLink>
+        >
+          {icon && (<TheIcon className={icon}/>)}
+          {text && (<span className='the-header-tab-item-text'/>)}
+          {children}
+        </TheLink>
       </li>
     )
   }

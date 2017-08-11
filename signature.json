@@ -58,7 +58,7 @@
         ],
         "params": [
           {
-            "name": "{to, activeClassName, activeStyle, children}",
+            "name": "{\n                  to,\n                  text,\n                  icon,\n                  activeClassName,\n                  activeStyle,\n                  children\n                }",
             "type": null
           }
         ],

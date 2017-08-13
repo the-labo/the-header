@@ -7,7 +7,16 @@ import { TheHeader, TheHeaderStyle } from 'the-header'
 import { TheButton, TheButtonStyle } from 'the-button'
 
 class ExampleComponent extends React.PureComponent {
+  constructor (props) {
+    super(props)
+    const s = this
+    s.state = {
+      notice: true
+    }
+  }
+
   render () {
+    const s = this
     const {MockPage} = ExampleComponent
     const {Logo, Tab, TabItem, RightArea} = TheHeader
     return (
@@ -15,11 +24,11 @@ class ExampleComponent extends React.PureComponent {
         <TheRouter.Hash>
           <TheHeaderStyle/>
           <TheButtonStyle/>
-          <TheHeader notices={{
+          <TheHeader notices={s.state.notice ? {
             'you needs to verify your email': {
-              'send again': () => console.log('send it!')
+              'send again': () => s.setState({notice: false})
             }
-          }}>
+          } : {}}>
             <Logo>Some app</Logo>
             <Tab>
               <TabItem to='/page-a'>PageA</TabItem>

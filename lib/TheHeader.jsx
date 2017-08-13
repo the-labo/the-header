@@ -10,6 +10,8 @@ import TheHeaderStyle from './TheHeaderStyle'
 import { TheContainer } from 'the-container'
 import { htmlAttributesFor } from 'the-component-util'
 
+const NOTICE_HEIGHT = 36
+
 /**
  * Header of the-components
  */
@@ -35,6 +37,7 @@ class TheHeader extends React.Component {
       notices,
     } = props
     const {innerHeight} = state
+    const noticeCount = Object.keys(notices).length
     return (
       <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
               className={c('the-header', className, {
@@ -49,15 +52,21 @@ class TheHeader extends React.Component {
           <TheContainer>
             {children}
           </TheContainer>
-          {
-            Object.keys(notices).map((message) => (
-              <TheHeader.Notice key={message}
-                                message={message}
-                                actions={notices[message]}
-              >
-              </TheHeader.Notice>
-            ))
-          }
+          <div className={c('the-header-notices-wrap', {
+            'the-header-notices-wrap-empty': noticeCount === 0
+          })}
+               style={{height: NOTICE_HEIGHT * noticeCount}}
+          >
+            {
+              Object.keys(notices).map((message) => (
+                <TheHeader.Notice key={message}
+                                  message={message}
+                                  actions={notices[message]}
+                >
+                </TheHeader.Notice>
+              ))
+            }
+          </div>
         </div>
       </header>
     )
@@ -159,7 +168,8 @@ class TheHeader extends React.Component {
     } = props
     return (
       <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
-           className={c('the-header-notice', className)}>
+           className={c('the-header-notice', className)}
+           style={{height: NOTICE_HEIGHT}}>
         <TheContainer className="the-header-notice-inner">
           <div className='the-header-notice-message'>
             {message}

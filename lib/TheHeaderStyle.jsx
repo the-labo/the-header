@@ -51,6 +51,16 @@ TheHeaderStyle.data = (options) => {
       backgroundColor: overlayBackgroundColor,
       borderBottom: `1px solid ${overlayBorderColor}`
     },
+    '.the-header-notices-wrap': {
+      display: 'block',
+      transition: 'height 400ms',
+      margin: 0,
+      padding: 0,
+      '&.the-header-notices-wrap-empty': {
+        height: '0 !important',
+        overflow: 'hidden'
+      },
+    },
     '.the-container': {
       position: 'relative',
       display: 'flex',

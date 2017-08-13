@@ -3,6 +3,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TheLink } from 'the-link'
+import { TheIcon } from 'the-icon'
 import c from 'classnames'
 import TheHeaderStyle from './TheHeaderStyle'
 import { TheContainer } from 'the-container'

@@ -2,14 +2,14 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import classnames from 'classnames'
+import c from 'classnames'
 import TheStyle from 'the-style'
 import { asStyleData } from 'the-component-util'
 
 /** Style for TheHeader */
 const TheHeaderStyle = ({id, className, options}) => (
   <TheStyle {...{id}}
-            className={classnames('the-header-style', className)}
+            className={c('the-header-style', className)}
             styles={TheHeaderStyle.data(options)}
   />
 )
@@ -51,7 +51,8 @@ TheHeaderStyle.data = (options) => {
       backgroundColor: overlayBackgroundColor,
       borderBottom: `1px solid ${overlayBorderColor}`
     },
-    '.the-header-inner .the-container': {
+    '.the-container': {
+      position: 'relative',
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'flex-start',
@@ -107,9 +108,6 @@ TheHeaderStyle.data = (options) => {
       alignItems: 'center',
       lineHeight: '2em'
     },
-    '.the-container': {
-      position: 'relative'
-    },
     '.the-header-right-area': {
       position: 'absolute',
       top: 0,
@@ -118,6 +116,33 @@ TheHeaderStyle.data = (options) => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center'
+    },
+    '.the-header-notice': {
+      display: 'block',
+      backgroundColor: '#333',
+      color: '#999',
+      fontSize: 'small',
+    },
+    '.the-header-notice-message': {
+      display: 'block',
+      padding: '4px 8px'
+    },
+    '.the-header-notice-inner.the-container': {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    },
+    '.the-header-notice-actions': {
+      flexWrap: 'wrap',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '4px'
+    },
+    '.the-header-notice-button': {
+      padding: '4px 8px',
+      lineHeight: 'inherit',
+      minHeight: '18px',
+      margin: 0
     },
     '&.the-header-as-overlay': {
       minHeight: '0 !important',

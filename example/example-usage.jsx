@@ -15,7 +15,11 @@ class ExampleComponent extends React.PureComponent {
         <TheRouter.Hash>
           <TheHeaderStyle/>
           <TheButtonStyle/>
-          <TheHeader>
+          <TheHeader notices={{
+            'you needs to verify your email': {
+              'send again': () => console.log('send it!')
+            }
+          }}>
             <Logo>Some app</Logo>
             <Tab>
               <TabItem to='/page-a'>PageA</TabItem>

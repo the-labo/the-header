@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TheLink } from 'the-link'
 import { TheIcon } from 'the-icon'
+import { TheButton } from 'the-button'
 import c from 'classnames'
 import TheHeaderStyle from './TheHeaderStyle'
 import { TheContainer } from 'the-container'
@@ -30,7 +31,8 @@ class TheHeader extends React.Component {
       className,
       children,
       style,
-      asOverlay
+      asOverlay,
+      notices,
     } = props
     const {innerHeight} = state
     return (
@@ -47,6 +49,15 @@ class TheHeader extends React.Component {
           <TheContainer>
             {children}
           </TheContainer>
+          {
+            Object.keys(notices).map((message) => (
+              <TheHeader.Notice key={message}
+                                message={message}
+                                actions={notices[message]}
+              >
+              </TheHeader.Notice>
+            ))
+          }
         </div>
       </header>
     )
@@ -138,17 +149,51 @@ class TheHeader extends React.Component {
       </div>
     )
   }
+
+  static Notice (props) {
+    const {
+      className,
+      message,
+      actions,
+      children
+    } = props
+    return (
+      <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
+           className={c('the-header-notice', className)}>
+        <TheContainer className="the-header-notice-inner">
+          <div className='the-header-notice-message'>
+            {message}
+          </div>
+          {children}
+          <div className='the-header-notice-actions'>
+            {
+              Object.keys(actions).map((title) => (
+                <TheButton key={title}
+                           className='the-header-notice-button'
+                           onClick={actions[title]}>
+                  {title}
+                </TheButton>
+              ))
+            }
+          </div>
+        </TheContainer>
+      </div>
+    )
+  }
 }
 
 TheHeader.Style = TheHeaderStyle
 
 TheHeader.propTypes = {
   /** Style as overlay */
-  asOverlay: PropTypes.bool
+  asOverlay: PropTypes.bool,
+  /** Notices */
+  notices: PropTypes.object
 }
 
 TheHeader.defaultProps = {
-  asOverlay: false
+  asOverlay: false,
+  notices: {}
 }
 
 TheHeader.displayName = 'TheHeader'

@@ -16,6 +16,13 @@
         "returns": null
       },
       {
+        "name": "layoutIfNeeded",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
         "name": "doLayout",
         "docblock": null,
         "modifiers": [],

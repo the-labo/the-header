@@ -12,7 +12,7 @@ import { htmlAttributesFor } from 'the-component-util'
 /**
  * Header of the-components
  */
-class TheHeader extends React.PureComponent {
+class TheHeader extends React.Component {
   constructor (props) {
     super(props)
     const s = this
@@ -58,6 +58,11 @@ class TheHeader extends React.PureComponent {
     s.doLayout()
   }
 
+  componentDidUpdate () {
+    const s = this
+    s.layoutIfNeeded()
+  }
+
   componentWillUnmount () {
     const s = this
     window.removeEventListener('resize', s.handleResize)
@@ -68,10 +73,20 @@ class TheHeader extends React.PureComponent {
     s.doLayout()
   }
 
+  layoutIfNeeded () {
+    const s = this
+    const {inner} = s
+    const innerHeight = inner && inner.offsetHeight
+    const needsLayout = innerHeight && (s.state.innerHeight !== innerHeight)
+    if (needsLayout) {
+      s.doLayout()
+    }
+  }
+
   doLayout () {
     const s = this
-    let {inner} = s
-    let innerHeight = inner && inner.offsetHeight
+    const {inner} = s
+    const innerHeight = inner && inner.offsetHeight
     s.setState({innerHeight})
   }
 

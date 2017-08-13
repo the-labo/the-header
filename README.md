@@ -173,6 +173,7 @@ Header of the-components
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `asOverlay` | bool  | Style as overlay | `false` |
+| `notices` | object  | Notices | `{}` |
 ### TheHeaderStyle
 
 Style for TheHeader

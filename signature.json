@@ -84,6 +84,20 @@
           }
         ],
         "returns": null
+      },
+      {
+        "name": "Notice",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
       }
     ],
     "props": {
@@ -95,6 +109,17 @@
         "description": "Style as overlay",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "notices": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Notices",
+        "defaultValue": {
+          "value": "{}",
           "computed": false
         }
       }

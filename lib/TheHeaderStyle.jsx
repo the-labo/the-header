@@ -162,8 +162,6 @@ TheHeaderStyle.data = (options) => {
         padding: 0,
         boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.33)',
         background: 'rgba(255, 255, 255, 0.66)',
-        height: overlayHeaderHeight,
-        lineHeight: `${overlayHeaderHeight}px`,
         minHeight: 0
       },
       '.the-header-logo': {

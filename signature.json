@@ -125,7 +125,7 @@
       },
       "asStatic": {
         "type": {
-          "name": "object"
+          "name": "bool"
         },
         "required": false,
         "description": "Render with static positioning",

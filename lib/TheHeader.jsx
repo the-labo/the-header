@@ -4,6 +4,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { TheLink } from 'the-link'
 import { TheIcon } from 'the-icon'
+import { get } from 'the-window'
 import { TheButton } from 'the-button'
 import c from 'classnames'
 import TheHeaderStyle from './TheHeaderStyle'
@@ -24,6 +25,7 @@ class TheHeader extends React.Component {
     s.state = {
       innerHeight: null
     }
+    s.layoutTimer = -1
   }
 
   render () {
@@ -74,8 +76,13 @@ class TheHeader extends React.Component {
 
   componentDidMount () {
     const s = this
+    const {window} = get('window')
     window.addEventListener('resize', s.handleResize)
     s.doLayout()
+
+    s.layoutTimer = setInterval(() => {
+      s.layoutIfNeeded()
+    }, 500)
   }
 
   componentDidUpdate () {
@@ -85,7 +92,9 @@ class TheHeader extends React.Component {
 
   componentWillUnmount () {
     const s = this
+    const {window} = get('window')
     window.removeEventListener('resize', s.handleResize)
+    clearInterval(s.layoutTimer)
   }
 
   handleResize (e) {

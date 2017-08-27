@@ -37,13 +37,15 @@ class TheHeader extends React.Component {
       style,
       asOverlay,
       notices,
+      asStatic,
     } = props
     const {innerHeight} = state
     const noticeCount = Object.keys(notices).length
     return (
       <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
               className={c('the-header', className, {
-                'the-header-as-overlay': asOverlay
+                'the-header-as-overlay': asOverlay,
+                'the-header-as-static': asStatic
               })}
               style={{minHeight: innerHeight}}
       >
@@ -207,12 +209,15 @@ TheHeader.propTypes = {
   /** Style as overlay */
   asOverlay: PropTypes.bool,
   /** Notices */
-  notices: PropTypes.object
+  notices: PropTypes.object,
+  /** Render with static positioning */
+  asStatic: PropTypes.bool
 }
 
 TheHeader.defaultProps = {
   asOverlay: false,
-  notices: {}
+  asStatic: false,
+  notices: {},
 }
 
 TheHeader.displayName = 'TheHeader'

@@ -122,6 +122,17 @@
           "value": "{}",
           "computed": false
         }
+      },
+      "asStatic": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Render with static positioning",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
       }
     }
   },

@@ -128,7 +128,7 @@ class ExampleComponent extends React.PureComponent {
             <TheHeader asOverlay
                        style={{top: 190}}
             >
-              <Logo>Some app</Logo>
+              <Logo>Some app with overlay header</Logo>
               <Tab>
                 <TabItem to='/page-a'>PageA</TabItem>
                 <TabItem to='/page-b'>PageB</TabItem>
@@ -137,6 +137,13 @@ class ExampleComponent extends React.PureComponent {
                 <TheButton>Login</TheButton>
                 <TheButton primary>Sign Up</TheButton>
               </RightArea>
+            </TheHeader>
+
+            <hr/>
+
+            <br/>
+            <TheHeader asStatic>
+              <Logo>Some app with static header</Logo>
             </TheHeader>
           </div>
         </TheRouter.Hash>
@@ -183,6 +190,7 @@ Header of the-components
 | --- | --- | ---- | ---- |
 | `asOverlay` | bool  | Style as overlay | `false` |
 | `notices` | object  | Notices | `{}` |
+| `asStatic` | object  | Render with static positioning | `false` |
 ### TheHeaderStyle
 
 Style for TheHeader

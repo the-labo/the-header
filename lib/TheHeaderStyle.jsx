@@ -193,6 +193,11 @@ TheHeaderStyle.data = (options) => {
       '.the-dropdown-menu-inner': {
         background: 'none'
       }
+    },
+    '&.the-header-as-static':{
+      '.the-header-inner': {
+        position: 'static'
+      }
     }
   })
 }

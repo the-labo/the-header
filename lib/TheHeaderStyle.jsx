@@ -172,12 +172,14 @@ TheHeaderStyle.data = (options) => {
       '.the-container': {
         maxWidth: 'none'
       },
-      '.the-header-tab-item .the-link': {
-        height: overlayHeaderHeight,
-        lineHeight: `${overlayHeaderHeight}px`,
-        display: 'inline-flex',
-        justifyContent: 'center',
-        alignItems: 'center'
+      '.the-header-tab-item': {
+        '.the-link,a': {
+          height: overlayHeaderHeight,
+          lineHeight: `${overlayHeaderHeight}px`,
+          display: 'inline-flex',
+          justifyContent: 'center',
+          alignItems: 'center'
+        }
       },
       '.the-header-right-area': {
         height: 'auto',

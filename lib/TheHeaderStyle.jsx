@@ -93,7 +93,7 @@ TheHeaderStyle.data = (options) => {
       display: 'inline-block',
       margin: '0 8px',
       padding: 0,
-      '.the-link,.a': {
+      '.the-link,a': {
         display: 'inline-block',
         color: tabInactiveColor,
         padding: '0 8px',

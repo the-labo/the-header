@@ -190,7 +190,7 @@ Header of the-components
 | --- | --- | ---- | ---- |
 | `asOverlay` | bool  | Style as overlay | `false` |
 | `notices` | object  | Notices | `{}` |
-| `asStatic` | object  | Render with static positioning | `false` |
+| `asStatic` | bool  | Render with static positioning | `false` |
 ### TheHeaderStyle
 
 Style for TheHeader

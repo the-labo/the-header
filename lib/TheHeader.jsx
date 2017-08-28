@@ -144,18 +144,18 @@ class TheHeader extends React.Component {
                     icon,
                     activeClassName,
                     activeStyle,
-                    children
+                    children,
+                    onClick
                   }) {
+    const Link = to ? () => <TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink> : 'a'
     return (
       <li className='the-header-tab-item'>
-        <TheLink to={to}
-                 activeClassName={activeClassName}
-                 activeStyle={activeStyle}
+        <Link {...{onClick}}
         >
           {icon && (<TheIcon className={icon}/>)}
           {text && (<span className='the-header-tab-item-text'/>)}
           {children}
-        </TheLink>
+        </Link>
       </li>
     )
   }

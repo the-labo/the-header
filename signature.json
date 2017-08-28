@@ -65,7 +65,7 @@
         ],
         "params": [
           {
-            "name": "{\n                  to,\n                  text,\n                  icon,\n                  activeClassName,\n                  activeStyle,\n                  children\n                }",
+            "name": "{\n                  to,\n                  text,\n                  icon,\n                  activeClassName,\n                  activeStyle,\n                  children,\n                  onClick\n                }",
             "type": null
           }
         ],

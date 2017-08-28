@@ -92,23 +92,23 @@ TheHeaderStyle.data = (options) => {
     '.the-header-tab-item': {
       display: 'inline-block',
       margin: '0 8px',
-      padding: 0
-    },
-    '.the-header-tab-item .the-link': {
-      display: 'inline-block',
-      color: tabInactiveColor,
-      padding: '0 8px',
-      textDecoration: 'none',
-      borderBottom: '2px solid transparent',
-      fontSize: 'smaller',
-      height: headerHeight,
-      lineHeight: `${headerHeight}px`,
-      boxSizing: 'border-box',
-      maxWidth: '100%'
-    },
-    '.the-header-tab-item .the-link-active': {
-      borderBottomColor: dominantColor,
-      color: dominantColor
+      padding: 0,
+      '.the-link,.a': {
+        display: 'inline-block',
+        color: tabInactiveColor,
+        padding: '0 8px',
+        textDecoration: 'none',
+        borderBottom: '2px solid transparent',
+        fontSize: 'smaller',
+        height: headerHeight,
+        lineHeight: `${headerHeight}px`,
+        boxSizing: 'border-box',
+        maxWidth: '100%'
+      },
+      '.the-link-active': {
+        borderBottomColor: dominantColor,
+        color: dominantColor
+      },
     },
     '.the-button': {
       fontSize: 'smaller',
@@ -194,7 +194,7 @@ TheHeaderStyle.data = (options) => {
         background: 'none'
       }
     },
-    '&.the-header-as-static':{
+    '&.the-header-as-static': {
       '.the-header-inner': {
         position: 'static'
       }

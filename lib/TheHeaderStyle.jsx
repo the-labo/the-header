@@ -135,12 +135,20 @@ TheHeaderStyle.data = (options) => {
     },
     '.the-header-notice-message': {
       display: 'block',
-      padding: '4px 8px'
+      padding: '4px 8px',
+      textOverflow: 'ellipsis',
+      overflow: 'hidden',
+      whiteSpace: 'nowrap',
+      transition: 'width 300ms',
+      '&:hover': {
+        overflow: 'visible'
+      }
     },
     '.the-header-notice-inner.the-container': {
       display: 'flex',
       justifyContent: 'space-between',
-      alignItems: 'center'
+      alignItems: 'center',
+      flexWrap: 'nowrap'
     },
     '.the-header-notice-actions': {
       flexWrap: 'wrap',
@@ -152,7 +160,10 @@ TheHeaderStyle.data = (options) => {
       padding: '4px 8px',
       lineHeight: 'inherit',
       minHeight: '18px',
-      margin: 0
+      margin: 0,
+      whiteSpace: 'nowrap',
+      overflow: 'hidden',
+      textOverflow: 'ellipsis'
     },
     '&.the-header-as-overlay': {
       minHeight: '0 !important',

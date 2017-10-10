@@ -87,7 +87,7 @@ TheHeaderStyle.data = (options) => {
       margin: '0 -16px',
       listStyle: 'none',
       boxSizing: 'border-box',
-      minWidth: contentWidth
+      minWidth: contentWidth / 2,
     },
     '.the-header-tab-item': {
       display: 'inline-block',

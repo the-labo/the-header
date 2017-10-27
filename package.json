@@ -31,12 +31,12 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "the-button": "^2.0.0",
+    "the-button": "^2.0.2",
     "the-component-util": "^2.1.0",
     "the-container": "^3.0.0",
     "the-icon": "^2.0.0",
     "the-link": "^3.0.1",
-    "the-style": "^2.0.0",
+    "the-style": "^2.0.1",
     "the-window": "^5.0.0"
   },
   "devDependencies": {

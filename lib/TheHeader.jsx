@@ -118,7 +118,9 @@ class TheHeader extends React.Component {
     const s = this
     const {inner} = s
     const innerHeight = inner && inner.offsetHeight
-    s.setState({innerHeight})
+    if (s.state.innerHeight !== innerHeight) {
+      s.setState({innerHeight})
+    }
   }
 
   static Logo ({to = '/', children}) {

@@ -94,7 +94,8 @@ TheHeaderStyle.data = (options) => {
       margin: '0 8px',
       padding: 0,
       '.the-link,a': {
-        display: 'inline-block',
+        display: 'inline-flex',
+        alignItems: 'center',
         color: tabInactiveColor,
         padding: '0 8px',
         textDecoration: 'none',

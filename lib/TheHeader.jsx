@@ -149,7 +149,9 @@ class TheHeader extends React.Component {
                     children,
                     onClick
                   }) {
-    const Link = to ? () => <TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink> : 'a'
+    const Link = to ? ({children}) => (
+      <TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink>
+    ) : 'a'
     return (
       <li className='the-header-tab-item'>
         <Link {...{onClick}}

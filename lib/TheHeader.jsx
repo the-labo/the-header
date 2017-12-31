@@ -149,13 +149,13 @@ class TheHeader extends React.Component {
                     children,
                     onClick
                   }) {
-    const Link = to ? ({children}) => (
-      <TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink>
-    ) : 'a'
+    const Link = to ? function TheLinkWrap ({children}) {
+      return (<TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink>)
+    } : 'a'
+
     return (
       <li className='the-header-tab-item'>
-        <Link {...{onClick}}
-        >
+        <Link {...{onClick}}>
           {icon && (<TheIcon className={icon}/>)}
           {text && (<span className='the-header-tab-item-text'/>)}
           {children}

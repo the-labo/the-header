@@ -57,7 +57,8 @@ class ExampleComponent extends React.PureComponent {
               <Logo>Some app with overlay header</Logo>
               <Tab>
                 <TabItem to='/page-a'>PageA</TabItem>
-                <TabItem to='/page-b' icon='fa fa-search'>PageB</TabItem>
+                <TabItem to='/page-b'>PageB</TabItem>
+                <TabItem to='/page-b' icon='fa fa-search'/>
               </Tab>
               <RightArea>
                 <TheButton>Login</TheButton>

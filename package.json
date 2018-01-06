@@ -37,7 +37,7 @@
     "the-icon": "^2.0.0",
     "the-link": "^3.0.4",
     "the-style": "^2.1.0",
-    "the-window": "^5.3.0"
+    "the-window": "^5.3.1"
   },
   "devDependencies": {
     "react": "^16.2.0",
@@ -52,7 +52,7 @@
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^2.1.2"
+    "the-templates": "^2.1.7"
   },
   "peerDependencies": {
     "react": ">=16",

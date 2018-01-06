@@ -40,7 +40,7 @@ class TheHeader extends React.Component {
       asStatic,
     } = props
     const {innerHeight} = state
-    const noticeCount = Object.keys(notices).length
+    const noticeCount = Object.keys(notices || {}).length
     return (
       <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
               className={c('the-header', className, {
@@ -62,7 +62,7 @@ class TheHeader extends React.Component {
                style={{height: NOTICE_HEIGHT * noticeCount}}
           >
             {
-              Object.keys(notices).map((message) => (
+              Object.keys(notices || {}).map((message) => (
                 <TheHeader.Notice key={message}
                                   message={message}
                                   actions={notices[message]}

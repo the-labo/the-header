@@ -1,6 +1,6 @@
 {
   "name": "the-header",
-  "version": "2.0.7",
+  "version": "3.0.0",
   "description": "Header of the-components",
   "main": "shim",
   "scripts": {
@@ -31,28 +31,28 @@
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "the-button": "^2.1.0",
+    "the-button": "^3.0.1",
     "the-component-util": "^2.1.0",
     "the-container": "^3.0.0",
-    "the-icon": "^2.0.0",
+    "the-icon": "^4.0.1",
     "the-link": "^3.0.4",
     "the-style": "^2.1.0",
-    "the-window": "^5.3.1"
+    "the-window": "^5.3.3"
   },
   "devDependencies": {
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "the-component-demo": "^3.0.4",
+    "the-component-demo": "^4.0.1",
     "the-route": "^2.0.1",
     "the-router": "^2.0.6",
-    "the-script-build": "^2.0.0",
+    "the-script-build": "^2.0.1",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^2.1.7"
+    "the-templates": "^2.1.11"
   },
   "peerDependencies": {
     "react": ">=16",

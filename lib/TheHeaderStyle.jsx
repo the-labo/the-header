@@ -34,7 +34,7 @@ TheHeaderStyle.data = (options) => {
     contentWidth = ThemeValues.contentWidth,
     tabInactiveColor = ThemeValues.tabInactiveColor,
     overlayHeaderHeight = 24,
-    zIndex = 4
+    zIndex = 8
   } = options
   return asStyleData('.the-header', {
     '': {

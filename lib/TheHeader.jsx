@@ -19,18 +19,17 @@ const NOTICE_HEIGHT = 36
 class TheHeader extends React.Component {
   constructor (props) {
     super(props)
-    const s = this
-    s.inner = null
-    s.handleResize = s.handleResize.bind(s)
-    s.state = {
+    this.inner = null
+    this.handleResize = this.handleResize.bind(this)
+    this.handleInnerRef = this.handleInnerRef.bind(this)
+    this.state = {
       innerHeight: null
     }
-    s.layoutTimer = -1
+    this.layoutTimer = -1
   }
 
   render () {
-    const s = this
-    const {props, state} = s
+    const {props, state} = this
     const {
       className,
       children,
@@ -51,7 +50,7 @@ class TheHeader extends React.Component {
       >
         <div className='the-header-inner'
              style={style}
-             ref={(inner) => { s.inner = inner }}
+             ref={this.handleInnerRef}
         >
           <TheContainer>
             {children}
@@ -77,13 +76,12 @@ class TheHeader extends React.Component {
   }
 
   componentDidMount () {
-    const s = this
     const {window} = get('window')
-    window.addEventListener('resize', s.handleResize)
-    s.doLayout()
+    window.addEventListener('resize', this.handleResize)
+    this.doLayout()
 
-    s.layoutTimer = setInterval(() => {
-      s.layoutIfNeeded()
+    this.layoutTimer = setInterval(() => {
+      this.layoutIfNeeded()
     }, 500)
   }
 
@@ -93,33 +91,33 @@ class TheHeader extends React.Component {
   }
 
   componentWillUnmount () {
-    const s = this
     const {window} = get('window')
-    window.removeEventListener('resize', s.handleResize)
-    clearInterval(s.layoutTimer)
+    window.removeEventListener('resize', this.handleResize)
+    clearInterval(this.layoutTimer)
   }
 
   handleResize (e) {
-    const s = this
-    s.doLayout()
+    this.doLayout()
+  }
+
+  handleInnerRef (inner) {
+    this.inner = inner
   }
 
   layoutIfNeeded () {
-    const s = this
-    const {inner} = s
+    const {inner} = this
     const innerHeight = inner && inner.offsetHeight
-    const needsLayout = innerHeight && (s.state.innerHeight !== innerHeight)
+    const needsLayout = innerHeight && (this.state.innerHeight !== innerHeight)
     if (needsLayout) {
-      s.doLayout()
+      this.doLayout()
     }
   }
 
   doLayout () {
-    const s = this
-    const {inner} = s
+    const {inner} = this
     const innerHeight = inner && inner.offsetHeight
-    if (s.state.innerHeight !== innerHeight) {
-      s.setState({innerHeight})
+    if (this.state.innerHeight !== innerHeight) {
+      this.setState({innerHeight})
     }
   }
 

@@ -16,6 +16,18 @@
         "returns": null
       },
       {
+        "name": "handleInnerRef",
+        "docblock": null,
+        "modifiers": [],
+        "params": [
+          {
+            "name": "inner",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "layoutIfNeeded",
         "docblock": null,
         "modifiers": [],

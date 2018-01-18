@@ -1,40 +1,22 @@
 {
   "name": "the-header",
-  "version": "3.0.2",
   "description": "Header of the-components",
-  "main": "shim",
-  "scripts": {
-    "build": "the-script-build",
-    "doc": "the-script-doc",
-    "prepare": "the-script-build && the-script-doc",
-    "release": "the-script-release -y",
-    "share": "the-script-share",
-    "test": "the-script-test",
-    "update": "the-script-update",
-    "watch": "the-script-build -w"
-  },
-  "repository": "the-labo/the-header",
-  "keywords": [
-    "the",
-    "react-component"
-  ],
+  "version": "3.0.2",
   "author": {
     "name": "Taka Okunishi",
     "email": "okunishinishi@gmail.com",
     "url": "http://okunishitaka.com"
   },
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/the-labo/the-header/issues"
   },
-  "homepage": "https://github.com/the-labo/the-header#readme",
   "dependencies": {
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "the-button": "^3.0.3",
+    "the-button": "^3.0.7",
     "the-component-util": "^2.1.2",
     "the-container": "^3.0.1",
-    "the-icon": "^4.0.1",
+    "the-icon": "^4.0.2",
     "the-link": "^3.0.6",
     "the-style": "^2.1.0",
     "the-window": "^5.3.3"
@@ -46,20 +28,38 @@
     "the-component-demo": "^4.0.6",
     "the-route": "^2.0.1",
     "the-router": "^2.0.6",
-    "the-script-build": "^2.0.2",
+    "the-script-build": "^2.0.4",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",
     "the-script-share": "^1.0.5",
     "the-script-test": "^2.0.1",
     "the-script-update": "^1.0.0",
-    "the-templates": "^2.1.15"
-  },
-  "peerDependencies": {
-    "react": ">=16",
-    "react-dom": ">=16"
+    "the-templates": "^2.3.1"
   },
   "engines": {
     "node": ">=8",
     "npm": ">=4"
+  },
+  "homepage": "https://github.com/the-labo/the-header#readme",
+  "keywords": [
+    "react-component",
+    "the"
+  ],
+  "license": "MIT",
+  "main": "shim",
+  "peerDependencies": {
+    "react": ">=16",
+    "react-dom": ">=16"
+  },
+  "repository": "the-labo/the-header",
+  "scripts": {
+    "build": "the-script-build",
+    "doc": "the-script-doc",
+    "prepare": "the-script-build && the-script-doc",
+    "release": "the-script-release -y",
+    "share": "the-script-share",
+    "test": "the-script-test",
+    "update": "the-script-update",
+    "watch": "the-script-build -w"
   }
 }

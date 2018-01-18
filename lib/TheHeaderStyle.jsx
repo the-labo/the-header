@@ -34,7 +34,7 @@ TheHeaderStyle.data = (options) => {
     contentWidth = ThemeValues.contentWidth,
     tabInactiveColor = ThemeValues.tabInactiveColor,
     overlayHeaderHeight = 24,
-    zIndex = 8
+    zIndex = 8,
   } = options
   return asStyleData('.the-header', {
     '': {
@@ -49,7 +49,7 @@ TheHeaderStyle.data = (options) => {
       zIndex,
       minHeight: headerHeight,
       backgroundColor: overlayBackgroundColor,
-      borderBottom: `1px solid ${overlayBorderColor}`
+      borderBottom: '1px solid rgba(255,255,255,0.92)',
     },
     '.the-header-notices-wrap': {
       display: 'block',

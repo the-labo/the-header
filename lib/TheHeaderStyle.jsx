@@ -48,8 +48,8 @@ TheHeaderStyle.data = (options) => {
       right: 0,
       zIndex,
       minHeight: headerHeight,
-      backgroundColor: overlayBackgroundColor,
-      borderBottom: '1px solid rgba(255,255,255,0.92)',
+      backgroundColor: 'rgba(255,255,255,0.92)',
+      borderBottom: `1px solid ${overlayBorderColor}`
     },
     '.the-header-notices-wrap': {
       display: 'block',

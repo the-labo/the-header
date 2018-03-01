@@ -4,44 +4,6 @@
     "displayName": "TheHeader",
     "methods": [
       {
-        "name": "handleResize",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "e",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "handleInnerRef",
-        "docblock": null,
-        "modifiers": [],
-        "params": [
-          {
-            "name": "inner",
-            "type": null
-          }
-        ],
-        "returns": null
-      },
-      {
-        "name": "layoutIfNeeded",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      },
-      {
-        "name": "doLayout",
-        "docblock": null,
-        "modifiers": [],
-        "params": [],
-        "returns": null
-      },
-      {
         "name": "Logo",
         "docblock": null,
         "modifiers": [
@@ -49,7 +11,35 @@
         ],
         "params": [
           {
-            "name": "{to = '/', children}",
+            "name": "{children, to = '/'}",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "Notice",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
+        "name": "RightArea",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "props",
             "type": null
           }
         ],
@@ -77,38 +67,48 @@
         ],
         "params": [
           {
-            "name": "{\n                  to,\n                  text,\n                  icon,\n                  activeClassName,\n                  activeStyle,\n                  children,\n                  onClick\n                }",
+            "name": "{\n                  activeClassName,\n                  activeStyle,\n                  children,\n                  icon,\n                  onClick,\n                  text,\n                  to,\n                }",
             "type": null
           }
         ],
         "returns": null
       },
       {
-        "name": "RightArea",
+        "name": "doLayout",
         "docblock": null,
-        "modifiers": [
-          "static"
-        ],
+        "modifiers": [],
+        "params": [],
+        "returns": null
+      },
+      {
+        "name": "handleInnerRef",
+        "docblock": null,
+        "modifiers": [],
         "params": [
           {
-            "name": "props",
+            "name": "inner",
             "type": null
           }
         ],
         "returns": null
       },
       {
-        "name": "Notice",
+        "name": "handleResize",
         "docblock": null,
-        "modifiers": [
-          "static"
-        ],
+        "modifiers": [],
         "params": [
           {
-            "name": "props",
+            "name": "e",
             "type": null
           }
         ],
+        "returns": null
+      },
+      {
+        "name": "layoutIfNeeded",
+        "docblock": null,
+        "modifiers": [],
+        "params": [],
         "returns": null
       }
     ],
@@ -124,17 +124,6 @@
           "computed": false
         }
       },
-      "notices": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Notices",
-        "defaultValue": {
-          "value": "{}",
-          "computed": false
-        }
-      },
       "asStatic": {
         "type": {
           "name": "bool"
@@ -143,6 +132,17 @@
         "description": "Render with static positioning",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "notices": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Notices",
+        "defaultValue": {
+          "value": "{}",
           "computed": false
         }
       }

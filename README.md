@@ -75,22 +75,20 @@ Usage
 'use strict'
 
 import React from 'react'
-import TheRouter from 'the-router'
-import TheRoute from 'the-route'
+import { TheRouter } from 'the-router'
+import { TheRoute } from 'the-route'
 import { TheHeader, TheHeaderStyle } from 'the-header'
 import { TheButton, TheButtonStyle } from 'the-button'
 
 class ExampleComponent extends React.PureComponent {
   constructor (props) {
     super(props)
-    const s = this
-    s.state = {
+    this.state = {
       notice: true
     }
   }
 
   render () {
-    const s = this
     const {MockPage} = ExampleComponent
     const {Logo, Tab, TabItem, RightArea} = TheHeader
     return (
@@ -98,9 +96,9 @@ class ExampleComponent extends React.PureComponent {
         <TheRouter.Hash>
           <TheHeaderStyle/>
           <TheButtonStyle/>
-          <TheHeader notices={s.state.notice ? {
+          <TheHeader notices={this.state.notice ? {
             'you needs to verify your email': {
-              'send again': () => s.setState({notice: false})
+              'send again': () => this.setState({notice: false})
             }
           } : {}}>
             <Logo>Some app</Logo>
@@ -155,8 +153,8 @@ class ExampleComponent extends React.PureComponent {
   static MockPage ({path, color, message}) {
     return (
       <TheRoute path={path}
-                render={(props) => (
-                  <div style={{color: color}}>
+                component={({}) => (
+                  <div style={{color}}>
                     {message}
                   </div>
                 )}
@@ -190,8 +188,8 @@ Header of the-components
 | Name | Type | Description | Default |
 | --- | --- | ---- | ---- |
 | `asOverlay` | bool  | Style as overlay | `false` |
-| `notices` | object  | Notices | `{}` |
 | `asStatic` | bool  | Render with static positioning | `false` |
+| `notices` | object  | Notices | `{}` |
 ### TheHeaderStyle
 
 Style for TheHeader

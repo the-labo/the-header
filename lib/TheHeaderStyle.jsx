@@ -77,7 +77,7 @@ TheHeaderStyle.data = (options) => {
     '.the-header-notice': {
       backgroundColor: '#333',
       color: '#999',
-      display: 'block',
+      display: 'flex',
       fontSize: 'small',
     },
     '.the-header-notice-actions': {
@@ -100,6 +100,7 @@ TheHeaderStyle.data = (options) => {
       display: 'flex',
       flexWrap: 'nowrap',
       justifyContent: 'space-between',
+      width: '100%',
     },
     '.the-header-notice-message': {
       '&:hover': {

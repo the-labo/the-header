@@ -1,13 +1,13 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
 import c from 'classnames'
-import TheStyle from 'the-style'
+import PropTypes from 'prop-types'
+import React from 'react'
 import { asStyleData } from 'the-component-util'
+import TheStyle from 'the-style'
 
 /** Style for TheHeader */
-const TheHeaderStyle = ({id, className, options}) => (
+const TheHeaderStyle = ({className, id, options}) => (
   <TheStyle {...{id}}
             className={c('the-header-style', className)}
             styles={TheHeaderStyle.data(options)}
@@ -17,202 +17,203 @@ const TheHeaderStyle = ({id, className, options}) => (
 TheHeaderStyle.displayName = 'TheHeaderStyle'
 TheHeaderStyle.propTypes = {
   /** Style options */
-  options: PropTypes.object
+  options: PropTypes.object,
 }
 
 TheHeaderStyle.defaultProps = {
-  options: {}
+  options: {},
 }
 
 TheHeaderStyle.data = (options) => {
   const {ThemeValues} = TheStyle
   const {
+    contentWidth = ThemeValues.contentWidth,
+    dominantColor = ThemeValues.dominantColor,
+    headerHeight = ThemeValues.headerHeight,
     overlayBackgroundColor = ThemeValues.overlayBackgroundColor,
     overlayBorderColor = ThemeValues.overlayBorderColor,
-    headerHeight = ThemeValues.headerHeight,
-    dominantColor = ThemeValues.dominantColor,
-    contentWidth = ThemeValues.contentWidth,
-    tabInactiveColor = ThemeValues.tabInactiveColor,
     overlayHeaderHeight = 24,
+    tabInactiveColor = ThemeValues.tabInactiveColor,
     zIndex = 8,
   } = options
   return asStyleData('.the-header', {
-    '': {
-      minHeight: headerHeight
-
-    },
-    '.the-header-inner': {
-      position: 'fixed',
-      left: 0,
-      top: 0,
-      right: 0,
-      zIndex,
-      minHeight: headerHeight,
-      backgroundColor: 'rgba(255,255,255,0.92)',
-      borderBottom: `1px solid ${overlayBorderColor}`
-    },
-    '.the-header-notices-wrap': {
-      display: 'block',
-      transition: 'height 400ms',
-      margin: 0,
-      padding: 0,
-      '&.the-header-notices-wrap-empty': {
-        height: '0 !important',
-        overflow: 'hidden'
-      },
+    '.the-button': {
+      alignItems: 'center',
+      display: 'inline-flex',
+      fontSize: 'smaller',
+      justifyContent: 'center',
+      lineHeight: '2em',
+      padding: '0.25em 1em',
     },
     '.the-container': {
-      position: 'relative',
-      display: 'flex',
       alignItems: 'center',
-      justifyContent: 'flex-start',
+      boxSizing: 'border-box',
+      display: 'flex',
       flexWrap: 'wrap',
-      boxSizing: 'border-box'
+      justifyContent: 'flex-start',
+      position: 'relative',
+    },
+    '.the-header-inner': {
+      backgroundColor: 'rgba(255,255,255,0.92)',
+      borderBottom: `1px solid ${overlayBorderColor}`,
+      left: 0,
+      minHeight: headerHeight,
+      position: 'fixed',
+      right: 0,
+      top: 0,
+      zIndex,
     },
     '.the-header-logo': {
-      display: 'inline-block',
+      alignItems: 'center',
+      boxSizing: 'border-box',
       color: 'inherit',
-      textDecoration: 'none',
+      display: 'inline-flex',
       height: headerHeight,
-      padding: '0 4px',
       lineHeight: `${headerHeight}px`,
       margin: '0 8px',
-      boxSizing: 'border-box'
+      padding: '0 4px',
+      textDecoration: 'none',
+    },
+    '.the-header-notice': {
+      backgroundColor: '#333',
+      color: '#999',
+      display: 'block',
+      fontSize: 'small',
+    },
+    '.the-header-notice-actions': {
+      alignItems: 'center',
+      display: 'flex',
+      flexWrap: 'wrap',
+      padding: '4px',
+    },
+    '.the-header-notice-button': {
+      lineHeight: 'inherit',
+      margin: 0,
+      minHeight: '18px',
+      overflow: 'hidden',
+      padding: '4px 8px',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    },
+    '.the-header-notice-inner.the-container': {
+      alignItems: 'center',
+      display: 'flex',
+      flexWrap: 'nowrap',
+      justifyContent: 'space-between',
+    },
+    '.the-header-notice-message': {
+      '&:hover': {
+        overflow: 'visible',
+      },
+      display: 'block',
+      overflow: 'hidden',
+      padding: '4px 8px',
+      textOverflow: 'ellipsis',
+      transition: 'width 300ms',
+      whiteSpace: 'nowrap',
+    },
+    '.the-header-notices-wrap': {
+      '&.the-header-notices-wrap-empty': {
+        height: '0 !important',
+        overflow: 'hidden',
+      },
+      display: 'block',
+      margin: 0,
+      padding: 0,
+      transition: 'height 400ms',
+    },
+    '.the-header-right-area': {
+      alignItems: 'center',
+      display: 'flex',
+      height: headerHeight,
+      justifyContent: 'center',
+      position: 'absolute',
+      right: 0,
+      top: 0,
     },
     '.the-header-tab': {
-      display: 'flex',
       alignItems: 'center',
-      justifyContent: 'flex-start',
-      padding: '0 8px',
-      margin: '0 -16px',
-      listStyle: 'none',
       boxSizing: 'border-box',
+      display: 'flex',
+      justifyContent: 'flex-start',
+      listStyle: 'none',
+      margin: '0 -16px',
       minWidth: contentWidth / 2,
+      padding: '0 8px',
     },
     '.the-header-tab-item': {
-      display: 'inline-block',
-      margin: '0 8px',
-      padding: 0,
+      '.the-link-active': {
+        borderBottomColor: dominantColor,
+        color: dominantColor,
+      },
       '.the-link,a': {
-        display: 'inline-flex',
         alignItems: 'center',
-        color: tabInactiveColor,
-        padding: '0 8px',
-        textDecoration: 'none',
         borderBottom: '2px solid transparent',
+        boxSizing: 'border-box',
+        color: tabInactiveColor,
+        display: 'inline-flex',
         fontSize: 'smaller',
         height: headerHeight,
         lineHeight: `${headerHeight}px`,
-        boxSizing: 'border-box',
-        maxWidth: '100%'
+        maxWidth: '100%',
+        padding: '0 8px',
+        textDecoration: 'none',
       },
-      '.the-link-active': {
-        borderBottomColor: dominantColor,
-        color: dominantColor
-      },
-    },
-    '.the-button': {
-      fontSize: 'smaller',
-      padding: '0.25em 1em',
-      display: 'inline-flex',
-      justifyContent: 'center',
-      alignItems: 'center',
-      lineHeight: '2em'
-    },
-    '.the-header-right-area': {
-      position: 'absolute',
-      top: 0,
-      right: 0,
-      height: headerHeight,
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center'
-    },
-    '.the-header-notice': {
-      display: 'block',
-      backgroundColor: '#333',
-      color: '#999',
-      fontSize: 'small',
-    },
-    '.the-header-notice-message': {
-      display: 'block',
-      padding: '4px 8px',
-      textOverflow: 'ellipsis',
-      overflow: 'hidden',
-      whiteSpace: 'nowrap',
-      transition: 'width 300ms',
-      '&:hover': {
-        overflow: 'visible'
-      }
-    },
-    '.the-header-notice-inner.the-container': {
-      display: 'flex',
-      justifyContent: 'space-between',
-      alignItems: 'center',
-      flexWrap: 'nowrap'
-    },
-    '.the-header-notice-actions': {
-      flexWrap: 'wrap',
-      display: 'flex',
-      alignItems: 'center',
-      padding: '4px'
-    },
-    '.the-header-notice-button': {
-      padding: '4px 8px',
-      lineHeight: 'inherit',
-      minHeight: '18px',
-      margin: 0,
-      whiteSpace: 'nowrap',
-      overflow: 'hidden',
-      textOverflow: 'ellipsis'
+      display: 'inline-block',
+      margin: '0 8px',
+      padding: 0,
     },
     '&.the-header-as-overlay': {
-      minHeight: '0 !important',
-      '.the-header-inner': {
-        zIndex: 666,
-        border: 'none',
-        padding: 0,
-        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.33)',
-        background: 'rgba(255, 255, 255, 0.66)',
-        minHeight: 0
-      },
-      '.the-header-logo': {
-        padding: '0 9px',
-        height: overlayHeaderHeight,
-        lineHeight: `${overlayHeaderHeight}px`
+      '.the-button': {
+        height: 'auto',
+        lineHeight: `${overlayHeaderHeight - 4.5}px`,
+        margin: '0 8px',
+        minHeight: 0,
+        padding: '0 1em',
       },
       '.the-container': {
-        maxWidth: 'none'
+        maxWidth: 'none',
+      },
+      '.the-dropdown-menu-inner': {
+        background: 'none',
+      },
+      '.the-header-inner': {
+        background: 'rgba(255, 255, 255, 0.66)',
+        border: 'none',
+        boxShadow: '2px 2px 4px rgba(0, 0, 0, 0.33)',
+        minHeight: 0,
+        padding: 0,
+        zIndex: 666,
+      },
+      '.the-header-logo': {
+        height: overlayHeaderHeight,
+        lineHeight: `${overlayHeaderHeight}px`,
+        padding: '0 9px',
+      },
+      '.the-header-right-area': {
+        bottom: 0,
+        height: 'auto',
       },
       '.the-header-tab-item': {
         '.the-link,a': {
-          height: overlayHeaderHeight,
-          lineHeight: `${overlayHeaderHeight}px`,
+          alignItems: 'center',
           display: 'inline-flex',
+          height: overlayHeaderHeight,
           justifyContent: 'center',
-          alignItems: 'center'
-        }
+          lineHeight: `${overlayHeaderHeight}px`,
+        },
       },
-      '.the-header-right-area': {
-        height: 'auto',
-        bottom: 0
-      },
-      '.the-button': {
-        padding: '0 1em',
-        lineHeight: `${overlayHeaderHeight - 4.5}px`,
-        minHeight: 0,
-        height: 'auto',
-        margin: '0 8px'
-      },
-      '.the-dropdown-menu-inner': {
-        background: 'none'
-      }
+      minHeight: '0 !important',
     },
     '&.the-header-as-static': {
       '.the-header-inner': {
-        position: 'static'
-      }
-    }
+        position: 'static',
+      },
+    },
+    '': {
+      minHeight: headerHeight,
+
+    },
   })
 }
 

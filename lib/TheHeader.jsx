@@ -1,15 +1,15 @@
 'use strict'
 
-import React from 'react'
-import PropTypes from 'prop-types'
-import { TheLink } from 'the-link'
-import { TheIcon } from 'the-icon'
-import { get } from 'the-window'
-import { TheButton } from 'the-button'
 import c from 'classnames'
-import TheHeaderStyle from './TheHeaderStyle'
-import { TheContainer } from 'the-container'
+import PropTypes from 'prop-types'
+import React from 'react'
+import { TheButton } from 'the-button'
 import { htmlAttributesFor } from 'the-component-util'
+import { TheContainer } from 'the-container'
+import { TheIcon } from 'the-icon'
+import { TheLink } from 'the-link'
+import { get } from 'the-window'
+import TheHeaderStyle from './TheHeaderStyle'
 
 const NOTICE_HEIGHT = 36
 
@@ -17,62 +17,98 @@ const NOTICE_HEIGHT = 36
  * Header of the-components
  */
 class TheHeader extends React.Component {
+  static Logo ({children, to = '/'}) {
+    return (
+      <TheLink className='the-header-logo'
+               to={to}>
+        {children}
+      </TheLink>
+    )
+  }
+
+  static Notice (props) {
+    const {
+      actions,
+      children,
+      className,
+      message,
+    } = props
+    return (
+      <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
+           className={c('the-header-notice', className)}
+           style={{height: NOTICE_HEIGHT}}>
+        <TheContainer className='the-header-notice-inner'>
+          <div className='the-header-notice-message'>
+            {message}
+          </div>
+          {children}
+          <div className='the-header-notice-actions'>
+            {
+              Object.keys(actions).map((title) => (
+                <TheButton className='the-header-notice-button'
+                           key={title}
+                           onClick={actions[title]}>
+                  {title}
+                </TheButton>
+              ))
+            }
+          </div>
+        </TheContainer>
+      </div>
+    )
+  }
+
+  static RightArea (props) {
+    const {children, className} = props
+    return (
+      <div {...htmlAttributesFor(props, {except: ['className']})}
+           className={c('the-header-right-area', className)}>
+        {children}
+      </div>
+    )
+  }
+
+  static Tab ({children}) {
+    return (
+      <ul className='the-header-tab'>
+        {children}
+      </ul>
+    )
+  }
+
+  static TabItem ({
+                    activeClassName,
+                    activeStyle,
+                    children,
+                    icon,
+                    onClick,
+                    text,
+                    to,
+                  }) {
+    const Link = to ? function TheLinkWrap ({children}) {
+      return (<TheLink {...{activeClassName, activeStyle, onClick, to}}>{children}</TheLink>)
+    } : 'a'
+
+    return (
+      <li className='the-header-tab-item'>
+        <Link {...{onClick}}>
+          {icon && (<TheIcon className={icon}/>)}
+          {text && (<span className='the-header-tab-item-text'/>)}
+          {children}
+        </Link>
+      </li>
+    )
+  }
+
   constructor (props) {
     super(props)
     this.inner = null
     this.handleResize = this.handleResize.bind(this)
     this.handleInnerRef = this.handleInnerRef.bind(this)
     this.state = {
-      innerHeight: null
+      innerHeight: null,
     }
     this.layoutTimer = -1
-  }
-
-  render () {
-    const {props, state} = this
-    const {
-      className,
-      children,
-      style,
-      asOverlay,
-      notices,
-      asStatic,
-    } = props
-    const {innerHeight} = state
-    const noticeCount = Object.keys(notices || {}).length
-    return (
-      <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
-              className={c('the-header', className, {
-                'the-header-as-overlay': asOverlay,
-                'the-header-as-static': asStatic
-              })}
-              style={{minHeight: innerHeight}}
-      >
-        <div className='the-header-inner'
-             style={style}
-             ref={this.handleInnerRef}
-        >
-          <TheContainer>
-            {children}
-          </TheContainer>
-          <div className={c('the-header-notices-wrap', {
-            'the-header-notices-wrap-empty': noticeCount === 0
-          })}
-               style={{height: NOTICE_HEIGHT * noticeCount}}
-          >
-            {
-              Object.keys(notices || {}).map((message) => (
-                <TheHeader.Notice key={message}
-                                  message={message}
-                                  actions={notices[message]}
-                >
-                </TheHeader.Notice>
-              ))
-            }
-          </div>
-        </div>
-      </header>
-    )
   }
 
   componentDidMount () {
@@ -96,12 +132,20 @@ class TheHeader extends React.Component {
     clearInterval(this.layoutTimer)
   }
 
-  handleResize (e) {
-    this.doLayout()
+  doLayout () {
+    const {inner} = this
+    const innerHeight = inner && inner.offsetHeight
+    if (this.state.innerHeight !== innerHeight) {
+      this.setState({innerHeight})
+    }
   }
 
   handleInnerRef (inner) {
     this.inner = inner
+  }
+
+  handleResize (e) {
+    this.doLayout()
   }
 
   layoutIfNeeded () {
@@ -113,94 +157,50 @@ class TheHeader extends React.Component {
     }
   }
 
-  doLayout () {
-    const {inner} = this
-    const innerHeight = inner && inner.offsetHeight
-    if (this.state.innerHeight !== innerHeight) {
-      this.setState({innerHeight})
-    }
-  }
-
-  static Logo ({to = '/', children}) {
-    return (
-      <TheLink to={to}
-               className='the-header-logo'>
-        {children}
-      </TheLink>
-    )
-  }
-
-  static Tab ({children}) {
-    return (
-      <ul className='the-header-tab'>
-        {children}
-      </ul>
-    )
-  }
-
-  static TabItem ({
-                    to,
-                    text,
-                    icon,
-                    activeClassName,
-                    activeStyle,
-                    children,
-                    onClick
-                  }) {
-    const Link = to ? function TheLinkWrap ({children}) {
-      return (<TheLink {...{to, activeClassName, activeStyle, onClick}}>{children}</TheLink>)
-    } : 'a'
-
-    return (
-      <li className='the-header-tab-item'>
-        <Link {...{onClick}}>
-          {icon && (<TheIcon className={icon}/>)}
-          {text && (<span className='the-header-tab-item-text'/>)}
-          {children}
-        </Link>
-      </li>
-    )
-  }
-
-  static RightArea (props) {
-    const {className, children} = props
-    return (
-      <div {...htmlAttributesFor(props, {except: ['className']})}
-           className={c('the-header-right-area', className)}>
-        {children}
-      </div>
-    )
-  }
-
-  static Notice (props) {
+  render () {
+    const {props, state} = this
     const {
+      asOverlay,
+      asStatic,
+      children,
       className,
-      message,
-      actions,
-      children
+      notices,
+      style,
     } = props
+    const {innerHeight} = state
+    const noticeCount = Object.keys(notices || {}).length
     return (
-      <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
-           className={c('the-header-notice', className)}
-           style={{height: NOTICE_HEIGHT}}>
-        <TheContainer className="the-header-notice-inner">
-          <div className='the-header-notice-message'>
-            {message}
-          </div>
-          {children}
-          <div className='the-header-notice-actions'>
+      <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
+              className={c('the-header', className, {
+                'the-header-as-overlay': asOverlay,
+                'the-header-as-static': asStatic,
+              })}
+              style={{minHeight: innerHeight}}
+      >
+        <div className='the-header-inner'
+             ref={this.handleInnerRef}
+             style={style}
+        >
+          <TheContainer>
+            {children}
+          </TheContainer>
+          <div className={c('the-header-notices-wrap', {
+            'the-header-notices-wrap-empty': noticeCount === 0,
+          })}
+               style={{height: NOTICE_HEIGHT * noticeCount}}
+          >
             {
-              Object.keys(actions).map((title) => (
-                <TheButton key={title}
-                           className='the-header-notice-button'
-                           onClick={actions[title]}>
-                  {title}
-                </TheButton>
+              Object.keys(notices || {}).map((message) => (
+                <TheHeader.Notice actions={notices[message]}
+                                  key={message}
+                                  message={message}
+                >
+                </TheHeader.Notice>
               ))
             }
           </div>
-        </TheContainer>
-      </div>
+        </div>
+      </header>
     )
   }
 }
@@ -210,10 +210,10 @@ TheHeader.Style = TheHeaderStyle
 TheHeader.propTypes = {
   /** Style as overlay */
   asOverlay: PropTypes.bool,
+  /** Render with static positioning */
+  asStatic: PropTypes.bool,
   /** Notices */
   notices: PropTypes.object,
-  /** Render with static positioning */
-  asStatic: PropTypes.bool
 }
 
 TheHeader.defaultProps = {

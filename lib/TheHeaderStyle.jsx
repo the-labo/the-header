@@ -143,11 +143,11 @@ TheHeaderStyle.data = (options) => {
       padding: '0 8px',
     },
     '.the-header-tab-item': {
-      '.the-link-active': {
-        borderBottomColor: dominantColor,
-        color: dominantColor,
-      },
       '.the-link,a': {
+        '&.the-link-active': {
+          borderBottomColor: dominantColor,
+          color: dominantColor,
+        },
         alignItems: 'center',
         borderBottom: '2px solid transparent',
         boxSizing: 'border-box',

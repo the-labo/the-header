@@ -36,6 +36,7 @@ class TheHeader extends React.Component {
     return (
       <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
            className={c('the-header-notice', className)}
+           role='alert'
            style={{height: NOTICE_HEIGHT}}>
         <TheContainer className='the-header-notice-inner'>
           <div className='the-header-notice-message'>
@@ -70,7 +71,9 @@ class TheHeader extends React.Component {
 
   static Tab ({children}) {
     return (
-      <ul className='the-header-tab'>
+      <ul className='the-header-tab'
+          role='tablist'
+      >
         {children}
       </ul>
     )
@@ -90,7 +93,9 @@ class TheHeader extends React.Component {
     } : 'a'
 
     return (
-      <li className='the-header-tab-item'>
+      <li className='the-header-tab-item'
+          role='tab'
+      >
         <Link {...{onClick}}>
           {icon && (<TheIcon className={icon}/>)}
           {text && (<span className='the-header-tab-item-text'/>)}
@@ -122,8 +127,7 @@ class TheHeader extends React.Component {
   }
 
   componentDidUpdate () {
-    const s = this
-    s.layoutIfNeeded()
+    this.layoutIfNeeded()
   }
 
   componentWillUnmount () {
@@ -220,6 +224,7 @@ TheHeader.defaultProps = {
   asOverlay: false,
   asStatic: false,
   notices: {},
+  role: 'banner',
 }
 
 TheHeader.displayName = 'TheHeader'

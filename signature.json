@@ -145,6 +145,12 @@
           "value": "{}",
           "computed": false
         }
+      },
+      "role": {
+        "defaultValue": {
+          "value": "'banner'",
+          "computed": false
+        }
       }
     }
   },

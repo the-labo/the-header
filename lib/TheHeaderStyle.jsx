@@ -211,6 +211,25 @@ TheHeaderStyle.data = (options) => {
         position: 'static',
       },
     },
+    '&.the-header-reversed': {
+      '.the-dropdown-menu': {
+        color: '#333',
+      },
+      '.the-header-inner': {
+        '.the-header-tab-item': {
+          '.the-link': {
+            color: 'white',
+            opacity: 0.8,
+          },
+          '.the-link-active': {
+            borderBottomColor: 'white',
+            opacity: 1,
+          },
+        },
+        background: dominantColor,
+        color: 'white',
+      },
+    },
     '': {
       minHeight: headerHeight,
 

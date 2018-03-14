@@ -169,6 +169,7 @@ class TheHeader extends React.Component {
       children,
       className,
       notices,
+      reversed,
       style,
     } = props
     const {innerHeight} = state
@@ -178,6 +179,7 @@ class TheHeader extends React.Component {
               className={c('the-header', className, {
                 'the-header-as-overlay': asOverlay,
                 'the-header-as-static': asStatic,
+                'the-header-reversed': reversed,
               })}
               style={{minHeight: innerHeight}}
       >
@@ -218,12 +220,15 @@ TheHeader.propTypes = {
   asStatic: PropTypes.bool,
   /** Notices */
   notices: PropTypes.object,
+  /** Reversed theme */
+  reversed: PropTypes.bool,
 }
 
 TheHeader.defaultProps = {
   asOverlay: false,
   asStatic: false,
   notices: {},
+  reversed: false,
   role: 'banner',
 }
 

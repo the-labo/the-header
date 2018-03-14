@@ -66,6 +66,24 @@ class ExampleComponent extends React.PureComponent {
 
             <hr/>
 
+
+            <TheHeader asOverlay
+                       reversed
+                       style={{top: 400}}
+            >
+              <Logo>Some app with overlay header</Logo>
+              <Tab>
+                <TabItem to='/page-a'>PageA</TabItem>
+                <TabItem to='/page-b'>PageB</TabItem>
+                <TabItem to='/page-b' icon='fa fa-search'/>
+              </Tab>
+              <RightArea>
+                <TheButton>Login</TheButton>
+                <TheButton primary>Sign Up</TheButton>
+              </RightArea>
+            </TheHeader>
+
+
             <br/>
             <TheHeader asStatic>
               <Logo>Some app with static header</Logo>

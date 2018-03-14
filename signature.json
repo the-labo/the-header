@@ -146,6 +146,17 @@
           "computed": false
         }
       },
+      "reversed": {
+        "type": {
+          "name": "bool"
+        },
+        "required": false,
+        "description": "Reversed theme",
+        "defaultValue": {
+          "value": "false",
+          "computed": false
+        }
+      },
       "role": {
         "defaultValue": {
           "value": "'banner'",

@@ -208,6 +208,7 @@ Header of the-components
 | `asOverlay` | bool  | Style as overlay | `false` |
 | `asStatic` | bool  | Render with static positioning | `false` |
 | `notices` | object  | Notices | `{}` |
+| `reversed` | bool  | Reversed theme | `false` |
 | `role` |   |  | `'banner'` |
 ### TheHeaderStyle
 

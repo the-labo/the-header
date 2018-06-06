@@ -159,10 +159,16 @@ TheHeaderStyle.data = (options) => {
         maxWidth: '100%',
         padding: '0 8px',
         textDecoration: 'none',
+        wordBreak: 'keep-all',
       },
       display: 'inline-block',
       margin: '0 8px',
       padding: 0,
+    },
+    '.the-header-tab-item-text,.the-header-tab-item-children': {
+      overflow: 'hidden',
+      textOverflow: 'ellipses',
+      whiteSpace: 'nowrap',
     },
     '&.the-header-as-overlay': {
       '.the-button': {

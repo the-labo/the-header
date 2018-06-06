@@ -98,8 +98,10 @@ class TheHeader extends React.Component {
       >
         <Link {...{onClick}}>
           {icon && (<TheIcon className={icon}/>)}
-          {text && (<span className='the-header-tab-item-text'/>)}
-          {children}
+          {text && (<span className='the-header-tab-item-text'>{text}</span>)}
+          <span className='the-header-tab-item-children'>
+            {children}
+          </span>
         </Link>
       </li>
     )

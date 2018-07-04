@@ -138,6 +138,7 @@ class ExampleComponent extends React.PureComponent {
 
             <TheHeader asOverlay
                        reversed
+                       ribbon={'This is a ribbon'}
                        style={{top: 400}}
             >
               <Logo>Some app with overlay header</Logo>
@@ -204,6 +205,7 @@ Header of the-components
 | `asStatic` | bool  | Render with static positioning | `false` |
 | `notices` | object  | Notices | `{}` |
 | `reversed` | bool  | Reversed theme | `false` |
+| `ribbon` | node  | Ribbon to show | `null` |
 | `role` |   |  | `'banner'` |
 ### TheHeaderStyle
 

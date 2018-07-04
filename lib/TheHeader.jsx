@@ -59,6 +59,14 @@ class TheHeader extends React.Component {
     )
   }
 
+  static Ribbon ({children}) {
+    return (
+      <div className='the-header-ribbon'>
+        {children}
+      </div>
+    )
+  }
+
   static RightArea (props) {
     const {children, className} = props
     return (
@@ -172,6 +180,7 @@ class TheHeader extends React.Component {
       className,
       notices,
       reversed,
+      ribbon,
       style,
     } = props
     const {innerHeight} = state
@@ -207,6 +216,7 @@ class TheHeader extends React.Component {
               ))
             }
           </div>
+          {ribbon && <TheHeader.Ribbon>{ribbon}</TheHeader.Ribbon>}
         </div>
       </header>
     )
@@ -224,6 +234,8 @@ TheHeader.propTypes = {
   notices: PropTypes.object,
   /** Reversed theme */
   reversed: PropTypes.bool,
+  /** Ribbon to show */
+  ribbon: PropTypes.node,
 }
 
 TheHeader.defaultProps = {
@@ -231,6 +243,7 @@ TheHeader.defaultProps = {
   asStatic: false,
   notices: {},
   reversed: false,
+  ribbon: null,
   role: 'banner',
 }
 

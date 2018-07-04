@@ -32,6 +32,20 @@
         "returns": null
       },
       {
+        "name": "Ribbon",
+        "docblock": null,
+        "modifiers": [
+          "static"
+        ],
+        "params": [
+          {
+            "name": "{children}",
+            "type": null
+          }
+        ],
+        "returns": null
+      },
+      {
         "name": "RightArea",
         "docblock": null,
         "modifiers": [
@@ -154,6 +168,17 @@
         "description": "Reversed theme",
         "defaultValue": {
           "value": "false",
+          "computed": false
+        }
+      },
+      "ribbon": {
+        "type": {
+          "name": "node"
+        },
+        "required": false,
+        "description": "Ribbon to show",
+        "defaultValue": {
+          "value": "null",
           "computed": false
         }
       },

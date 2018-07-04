@@ -9,7 +9,6 @@ import TheHeader from './TheHeader'
 import TheHeaderStyle from './TheHeaderStyle'
 
 export {
-  TheHeader,
-  TheHeaderStyle,
+ TheHeader,
+ TheHeaderStyle,
 }
-

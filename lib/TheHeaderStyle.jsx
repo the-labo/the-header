@@ -133,7 +133,7 @@ TheHeaderStyle.data = (options) => {
       display: 'block',
       fontSize: '9px',
       left: '0',
-      opacity: '0.8',
+      opacity: 0.66,
       padding: '1px 2px',
       pointerEvents: 'none',
       position: 'absolute',

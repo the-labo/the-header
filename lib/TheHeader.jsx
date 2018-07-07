@@ -96,23 +96,31 @@ class TheHeader extends React.Component {
                     text,
                     to,
                   }) {
-    const Link = to ? function TheLinkWrap ({children}) {
-      return (<TheLink {...{activeClassName, activeStyle, onClick, to}}>{children}</TheLink>)
-    } : 'a'
-
-    return (
-      <li className='the-header-tab-item'
-          role='tab'
-      >
-        <Link {...{onClick}}>
-          {icon && (<TheIcon className={icon}/>)}
-          {text && (<span className='the-header-tab-item-text'>{text}</span>)}
-          <span className='the-header-tab-item-children'>
-            {children}
-          </span>
-        </Link>
-      </li>
-    )
+    if (to) {
+      return (
+        <li className='the-header-tab-item'
+            role='tab'
+        >
+          <TheLink {...{activeClassName, activeStyle, onClick, to}}>
+            {icon && (<TheIcon className={icon}/>)}
+            {text && (<span className='the-header-tab-item-text'>{text}</span>)}
+            <span className='the-header-tab-item-children'>{children}</span>
+          </TheLink>
+        </li>
+      )
+    } else {
+      return (
+        <li className='the-header-tab-item'
+            role='tab'
+        >
+          <a {...{onClick}}>
+            {icon && (<TheIcon className={icon}/>)}
+            {text && (<span className='the-header-tab-item-text'>{text}</span>)}
+            <span className='the-header-tab-item-children'>{children}</span>
+          </a>
+        </li>
+      )
+    }
   }
 
   constructor (props) {

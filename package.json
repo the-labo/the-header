@@ -1,7 +1,7 @@
 {
   "name": "the-header",
   "description": "Header of the-components",
-  "version": "3.1.8",
+  "version": "3.1.9",
   "author": {
     "name": "Taka Okunishi",
     "email": "okunishinishi@gmail.com",
@@ -27,8 +27,8 @@
     "react-dom": "^16.4.1",
     "react-router-dom": "^4.3.1",
     "the-component-demo": "^4.0.12",
-    "the-route": "^3.1.14",
-    "the-router": "^2.0.10",
+    "the-route": "^3.1.15",
+    "the-router": "^2.0.12",
     "the-script-build": "^3.1.17",
     "the-script-doc": "^1.0.2",
     "the-script-release": "^1.0.6",

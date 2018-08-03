@@ -91,6 +91,7 @@ class TheHeader extends React.Component {
                     activeClassName,
                     activeStyle,
                     children,
+                    exact,
                     icon,
                     onClick,
                     text,
@@ -101,7 +102,7 @@ class TheHeader extends React.Component {
         <li className='the-header-tab-item'
             role='tab'
         >
-          <TheLink {...{activeClassName, activeStyle, onClick, to}}>
+          <TheLink {...{activeClassName, activeStyle, exact, onClick, to}}>
             {icon && (<TheIcon className={icon}/>)}
             {text && (<span className='the-header-tab-item-text'>{text}</span>)}
             <span className='the-header-tab-item-children'>{children}</span>

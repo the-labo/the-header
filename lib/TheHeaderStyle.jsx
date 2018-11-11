@@ -7,8 +7,8 @@ import { asStyleData } from 'the-component-util'
 import { TheStyle } from 'the-style'
 
 /** Style for TheHeader */
-const TheHeaderStyle = ({className, id, options}) => (
-  <TheStyle {...{id}}
+const TheHeaderStyle = ({ className, id, options }) => (
+  <TheStyle {...{ id }}
             className={c('the-header-style', className)}
             styles={TheHeaderStyle.data(options)}
   />
@@ -25,7 +25,7 @@ TheHeaderStyle.defaultProps = {
 }
 
 TheHeaderStyle.data = (options) => {
-  const {ThemeValues} = TheStyle
+  const { ThemeValues } = TheStyle
   const {
     contentWidth = ThemeValues.contentWidth,
     dominantColor = ThemeValues.dominantColor,

@@ -9,7 +9,6 @@ import { TheContainer } from 'the-container'
 import { TheIcon } from 'the-icon'
 import { TheLink } from 'the-link'
 import { get } from 'the-window'
-import TheHeaderStyle from './TheHeaderStyle'
 
 const NOTICE_HEIGHT = 36
 
@@ -17,7 +16,7 @@ const NOTICE_HEIGHT = 36
  * Header of the-components
  */
 class TheHeader extends React.Component {
-  static Logo ({children, to = '/'}) {
+  static Logo ({ children, to = '/' }) {
     return (
       <TheLink className='the-header-logo'
                to={to}>
@@ -34,10 +33,10 @@ class TheHeader extends React.Component {
       message,
     } = props
     return (
-      <div {...htmlAttributesFor(props, {except: ['className', 'actions']})}
+      <div {...htmlAttributesFor(props, { except: ['className', 'actions'] })}
            className={c('the-header-notice', className)}
            role='alert'
-           style={{height: NOTICE_HEIGHT}}>
+           style={{ height: NOTICE_HEIGHT }}>
         <TheContainer className='the-header-notice-inner'>
           <div className='the-header-notice-message'>
             {message}
@@ -59,7 +58,7 @@ class TheHeader extends React.Component {
     )
   }
 
-  static Ribbon ({children}) {
+  static Ribbon ({ children }) {
     return (
       <div className='the-header-ribbon'>
         {children}
@@ -68,16 +67,16 @@ class TheHeader extends React.Component {
   }
 
   static RightArea (props) {
-    const {children, className} = props
+    const { children, className } = props
     return (
-      <div {...htmlAttributesFor(props, {except: ['className']})}
+      <div {...htmlAttributesFor(props, { except: ['className'] })}
            className={c('the-header-right-area', className)}>
         {children}
       </div>
     )
   }
 
-  static Tab ({children}) {
+  static Tab ({ children }) {
     return (
       <ul className='the-header-tab'
           role='tablist'
@@ -102,7 +101,7 @@ class TheHeader extends React.Component {
         <li className='the-header-tab-item'
             role='tab'
         >
-          <TheLink {...{activeClassName, activeStyle, exact, onClick, to}}>
+          <TheLink {...{ activeClassName, activeStyle, exact, onClick, to }}>
             {icon && (<TheIcon className={icon}/>)}
             {text && (<span className='the-header-tab-item-text'>{text}</span>)}
             <span className='the-header-tab-item-children'>{children}</span>
@@ -114,7 +113,7 @@ class TheHeader extends React.Component {
         <li className='the-header-tab-item'
             role='tab'
         >
-          <a {...{onClick}}>
+          <a {...{ onClick }}>
             {icon && (<TheIcon className={icon}/>)}
             {text && (<span className='the-header-tab-item-text'>{text}</span>)}
             <span className='the-header-tab-item-children'>{children}</span>
@@ -136,7 +135,7 @@ class TheHeader extends React.Component {
   }
 
   componentDidMount () {
-    const {window} = get('window')
+    const { window } = get('window')
     window.addEventListener('resize', this.handleResize)
     this.doLayout()
 
@@ -150,16 +149,16 @@ class TheHeader extends React.Component {
   }
 
   componentWillUnmount () {
-    const {window} = get('window')
+    const { window } = get('window')
     window.removeEventListener('resize', this.handleResize)
     clearInterval(this.layoutTimer)
   }
 
   doLayout () {
-    const {inner} = this
+    const { inner } = this
     const innerHeight = inner && inner.offsetHeight
     if (this.state.innerHeight !== innerHeight) {
-      this.setState({innerHeight})
+      this.setState({ innerHeight })
     }
   }
 
@@ -172,7 +171,7 @@ class TheHeader extends React.Component {
   }
 
   layoutIfNeeded () {
-    const {inner} = this
+    const { inner } = this
     const innerHeight = inner && inner.offsetHeight
     const needsLayout = innerHeight && (this.state.innerHeight !== innerHeight)
     if (needsLayout) {
@@ -181,7 +180,7 @@ class TheHeader extends React.Component {
   }
 
   render () {
-    const {props, state} = this
+    const { props, state } = this
     const {
       asOverlay,
       asStatic,
@@ -192,16 +191,16 @@ class TheHeader extends React.Component {
       ribbon,
       style,
     } = props
-    const {innerHeight} = state
+    const { innerHeight } = state
     const noticeCount = Object.keys(notices || {}).length
     return (
-      <header {...htmlAttributesFor(props, {except: ['className', 'style']})}
+      <header {...htmlAttributesFor(props, { except: ['className', 'style'] })}
               className={c('the-header', className, {
                 'the-header-as-overlay': asOverlay,
                 'the-header-as-static': asStatic,
                 'the-header-reversed': reversed,
               })}
-              style={{minHeight: innerHeight}}
+              style={{ minHeight: innerHeight }}
       >
         <div className='the-header-inner'
              ref={this.handleInnerRef}
@@ -213,7 +212,7 @@ class TheHeader extends React.Component {
           <div className={c('the-header-notices-wrap', {
             'the-header-notices-wrap-empty': noticeCount === 0,
           })}
-               style={{height: NOTICE_HEIGHT * noticeCount}}
+               style={{ height: NOTICE_HEIGHT * noticeCount }}
           >
             {
               Object.keys(notices || {}).map((message) => (
@@ -231,8 +230,6 @@ class TheHeader extends React.Component {
     )
   }
 }
-
-TheHeader.Style = TheHeaderStyle
 
 TheHeader.propTypes = {
   /** Style as overlay */

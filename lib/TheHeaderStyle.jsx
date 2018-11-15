@@ -36,8 +36,12 @@ TheHeaderStyle.data = (options) => {
     tabInactiveColor = ThemeValues.tabInactiveColor,
     zIndex = 8,
   } = options
-  return asStyleData('.the-header', {
-    '.the-button': {
+  return asStyleData({
+    '.the-header': {
+      minHeight: headerHeight,
+
+    },
+    '.the-header .the-button': {
       alignItems: 'center',
       display: 'inline-flex',
       fontSize: 'smaller',
@@ -45,7 +49,7 @@ TheHeaderStyle.data = (options) => {
       lineHeight: '2em',
       padding: '0.25em 1em',
     },
-    '.the-container': {
+    '.the-header .the-container': {
       alignItems: 'center',
       boxSizing: 'border-box',
       display: 'flex',
@@ -191,6 +195,30 @@ TheHeaderStyle.data = (options) => {
       textOverflow: 'ellipses',
       whiteSpace: 'nowrap',
     },
+    '.the-header.the-header-as-static': {
+      '.the-header-inner': {
+        position: 'static',
+      },
+    },
+    '.the-header.the-header-reversed': {
+      '.the-dropdown-menu': {
+        color: '#333',
+      },
+      '.the-header-inner': {
+        '.the-header-tab-item': {
+          '.the-link': {
+            color: 'white',
+            opacity: 0.8,
+          },
+          '.the-link-active': {
+            borderBottomColor: 'white',
+            opacity: 1,
+          },
+        },
+        background: dominantColor,
+        color: 'white',
+      },
+    },
     '&.the-header-as-overlay': {
       '.the-button': {
         height: 'auto',
@@ -232,34 +260,6 @@ TheHeaderStyle.data = (options) => {
         },
       },
       minHeight: '0 !important',
-    },
-    '&.the-header-as-static': {
-      '.the-header-inner': {
-        position: 'static',
-      },
-    },
-    '&.the-header-reversed': {
-      '.the-dropdown-menu': {
-        color: '#333',
-      },
-      '.the-header-inner': {
-        '.the-header-tab-item': {
-          '.the-link': {
-            color: 'white',
-            opacity: 0.8,
-          },
-          '.the-link-active': {
-            borderBottomColor: 'white',
-            opacity: 1,
-          },
-        },
-        background: dominantColor,
-        color: 'white',
-      },
-    },
-    '': {
-      minHeight: headerHeight,
-
     },
   })
 }

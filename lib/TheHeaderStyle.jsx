@@ -195,31 +195,7 @@ TheHeaderStyle.data = (options) => {
       textOverflow: 'ellipses',
       whiteSpace: 'nowrap',
     },
-    '.the-header.the-header-as-static': {
-      '.the-header-inner': {
-        position: 'static',
-      },
-    },
-    '.the-header.the-header-reversed': {
-      '.the-dropdown-menu': {
-        color: '#333',
-      },
-      '.the-header-inner': {
-        '.the-header-tab-item': {
-          '.the-link': {
-            color: 'white',
-            opacity: 0.8,
-          },
-          '.the-link-active': {
-            borderBottomColor: 'white',
-            opacity: 1,
-          },
-        },
-        background: dominantColor,
-        color: 'white',
-      },
-    },
-    '&.the-header-as-overlay': {
+    '.the-header.the-header-as-overlay': {
       '.the-button': {
         height: 'auto',
         lineHeight: `${overlayHeaderHeight - 4.5}px`,
@@ -260,6 +236,30 @@ TheHeaderStyle.data = (options) => {
         },
       },
       minHeight: '0 !important',
+    },
+    '.the-header.the-header-as-static': {
+      '.the-header-inner': {
+        position: 'static',
+      },
+    },
+    '.the-header.the-header-reversed': {
+      '.the-dropdown-menu': {
+        color: '#333',
+      },
+      '.the-header-inner': {
+        '.the-header-tab-item': {
+          '.the-link': {
+            color: 'white',
+            opacity: 0.8,
+          },
+          '.the-link-active': {
+            borderBottomColor: 'white',
+            opacity: 1,
+          },
+        },
+        background: dominantColor,
+        color: 'white',
+      },
     },
   })
 }

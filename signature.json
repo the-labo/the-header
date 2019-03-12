@@ -11,7 +11,7 @@
         ],
         "params": [
           {
-            "name": "{ children, to = '/' }",
+            "name": "{ children, className, to = '/' }",
             "type": null
           }
         ],
@@ -81,7 +81,7 @@
         ],
         "params": [
           {
-            "name": "{\n  activeClassName,\n  activeStyle,\n  children,\n  exact,\n  icon,\n  onClick,\n  text,\n  to,\n}",
+            "name": "{\n  activeClassName,\n  activeStyle,\n  children,\n  className,\n  exact,\n  icon,\n  onClick,\n  text,\n  to,\n}",
             "type": null
           }
         ],

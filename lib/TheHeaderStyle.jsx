@@ -8,9 +8,10 @@ import { TheStyle } from 'the-style'
 
 /** Style for TheHeader */
 const TheHeaderStyle = ({ className, id, options }) => (
-  <TheStyle {...{ id }}
-            className={c('the-header-style', className)}
-            styles={TheHeaderStyle.data(options)}
+  <TheStyle
+    {...{ id }}
+    className={c('the-header-style', className)}
+    styles={TheHeaderStyle.data(options)}
   />
 )
 
@@ -39,7 +40,6 @@ TheHeaderStyle.data = (options) => {
   return asStyleData({
     '.the-header': {
       minHeight: headerHeight,
-
     },
     '.the-header .the-button': {
       alignItems: 'center',
